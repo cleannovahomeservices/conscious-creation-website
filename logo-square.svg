@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Conscious Creation — Square Logo Lockup
+  Mark + wordmark in square format.
+  Use for: social media profile pictures (Instagram, LinkedIn, etc.), avatars, square containers.
+  
+  Note: When using in environments where Cormorant Garamond isn't available, 
+  use the included logo-square.png instead.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&amp;display=swap');
+      .wordmark {
+        font-family: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+        font-size: 92px;
+        font-weight: 500;
+        fill: #1f1647;
+        letter-spacing: 3px;
+      }
+      .byline {
+        font-family: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+        font-style: italic;
+        font-size: 28px;
+        fill: #b8924a;
+        letter-spacing: 6px;
+      }
+    </style>
+  </defs>
+
+  <!-- Cream background -->
+  <rect width="1080" height="1080" fill="#faf6ec"/>
+
+  <!-- Subtle gold border -->
+  <rect x="40" y="40" width="1000" height="1000" fill="none" stroke="#c9b78a" stroke-width="2" opacity="0.5"/>
+
+  <!-- Mark -->
+  <g transform="translate(440, 280)">
+    <polygon points="100,16 114,86 184,100 114,114 100,184 86,114 16,100 86,86" fill="#b8924a"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="540" y="640" text-anchor="middle" class="wordmark">Conscious Creation</text>
+
+  <!-- Byline -->
+  <text x="540" y="720" text-anchor="middle" class="byline">A TEACHING BY CONSTANTIN CRANZ</text>
+
+  <!-- Bottom decorative ornament -->
+  <g transform="translate(525, 800) scale(0.15)">
+    <polygon points="100,16 114,86 184,100 114,114 100,184 86,114 16,100 86,86" fill="#b8924a"/>
+  </g>
+</svg>
