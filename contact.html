@@ -2,169 +2,123 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Conscious Creation</title>
-<meta name="description" content="Reach out to Constantin Cranz. For coaching inquiries, the Sovereign Year, or simply to write.">
-<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Reach out to Constantin Cranz — for the books, the companion, ways to work directly, or simply to write. You will hear back personally.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="cc-styles.css">
 </head>
 <body>
 
-<header class="site-header">
-  <a href="es/contacto.html" class="lang-toggle" title="Leer en español"><span class="current">EN</span> | ES</a>
-  <div class="header-inner">
-    <a href="index.html" class="brand-mark">
-      <div class="ornament">❖</div>
-      <div class="name">Conscious Creation</div>
-      <div class="author">A Teaching by Constantin Cranz</div>
-    </a>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="books.html">Books</a>
-      <a href="app.html">App</a>
-      <a href="course.html">Course</a>
-      <a href="coaching.html">Coaching</a>
-      <a href="sovereign-year.html">Sovereign Year</a>
-      <a href="writings.html">Writings</a>
-      <a href="contact.html" class="current">Contact</a>
-    </nav>
+<!-- TOP BAR -->
+<div class="topbar solid" id="topbar">
+  <a href="index.html" class="brand"><span class="glyph">❖</span> Conscious Creation</a>
+  <nav>
+    <a href="books.html">Books</a>
+    <a href="app.html">App</a>
+    <a href="coaching.html">Coaching</a>
+    <a href="about.html">About</a>
+    <a href="es/index.html" class="lang">ES</a>
+  </nav>
+</div>
+
+<!-- PAGE HERO -->
+<header class="page-hero">
+  <div class="hero-field">
+    <div class="orb a"></div><div class="orb b"></div><div class="orb d"></div>
+  </div>
+  <div class="page-hero-inner">
+    <div class="eyebrow">Contact</div>
+    <h1>Reach out<em>The conversation begins here</em></h1>
+    <p class="sub">For the books, the companion, ways to work directly, or simply to write — there is no wrong reason to begin.</p>
   </div>
 </header>
 
-<section class="page-header">
-  <div class="ornament">❖</div>
-  <div class="eyebrow">Contact</div>
-  <h1>Reach Out<em>The conversation begins here</em></h1>
-  <p class="subtitle">For inquiries about coaching, the Sovereign Year, or simply to write — there is no wrong reason to begin a conversation.</p>
+<!-- INTRO + CARDS -->
+<section class="block">
+  <div class="wrap center">
+    <p class="lead reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--indigo);max-width:640px;margin:0 auto;">Every meaningful relationship in this work begins with a letter. Write — and you will hear back personally.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <div class="c-label">Email</div>
+        <h3>Direct contact</h3>
+        <p>For all inquiries — the books, the companion, ways to work directly, or simply to write.</p>
+        <p style="margin-top:0.8rem;"><a href="mailto:constantincranz@gmail.com" class="c-email">constantincranz@gmail.com</a></p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="c-label">The Year-Long Path</div>
+        <h3>The Sovereign Year</h3>
+        <p>The longest container lives on its own site.</p>
+        <p style="margin-top:0.8rem;"><a href="https://constantincranz.com" class="c-email">constantincranz.com</a></p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="c-label">Location</div>
+        <h3>Based in Medellín</h3>
+        <p>Constantin lives and works from Medellín, Colombia, and works internationally, across many cultures.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<main>
+<!-- THE FORM -->
+<section class="block outcomes">
+  <div class="wrap center">
+    <div class="section-label reveal">Write</div>
+    <h2 class="section-h2 reveal">The letter</h2>
+    <p class="reveal" style="max-width:520px;margin:1.2rem auto 0;color:var(--ink-soft);font-style:italic;font-size:1.1rem;">Use whichever feels easier — this form, or a direct email. Both arrive in the same place.</p>
 
-  <p class="lead">Every meaningful relationship in this work begins with a letter. Use the form below — or write directly to the email address — and you'll hear back personally.</p>
+    <form class="contact-form reveal" action="mailto:constantincranz@gmail.com" method="post" enctype="text/plain">
+      <div class="form-field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="email">Your email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="reason">What brings you</label>
+        <input type="text" id="reason" name="reason" placeholder="A word or two — the books, working directly, or simply 'a conversation'">
+      </div>
+      <div class="form-field">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" placeholder="Write as you would write to a friend. There is no template to follow." required></textarea>
+      </div>
+      <div style="margin-top:1.6rem;"><button type="submit" class="btn btn-primary">Send</button></div>
+    </form>
 
-  <div class="card-grid">
-    <div class="card">
-      <div class="eyebrow">Email</div>
-      <h3>Direct Contact</h3>
-      <p>For all inquiries — coaching, the Sovereign Year, the books, the app, or simply to write.</p>
-      <p style="margin-top: 8px;"><a href="mailto:constantincranz@gmail.com" style="color: var(--violet); text-decoration: none; font-weight: 500;">constantincranz@gmail.com</a></p>
-    </div>
-    <div class="card">
-      <div class="eyebrow">Website</div>
-      <h3>Reality Check</h3>
-      <p>The teacher's broader online home and writings.</p>
-      <p style="margin-top: 8px;"><a href="https://www.consciouscreation.art" style="color: var(--violet); text-decoration: none; font-weight: 500;">www.consciouscreation.art</a></p>
-    </div>
-    <div class="card">
-      <div class="eyebrow">Location</div>
-      <h3>Based in Medellín</h3>
-      <p>Constantin lives and works from Medellín, Colombia, and works internationally with clients across many cultures.</p>
+    <div class="callout reveal">
+      <div class="label">A Word</div>
+      <p>You will hear back personally — not from an assistant, not from an automation. Constantin reads each letter and responds. <em>This may take a few days. The teaching is patient.</em></p>
     </div>
   </div>
+</section>
 
-  <div class="section-break"></div>
+<!-- DECREE BAND -->
+<section class="decree-band">
+  <div class="decree reveal">The teacher does not call.<br>Life calls.<br><em>If life is calling — write.</em></div>
+</section>
 
-  <h2><span class="label">Write</span>The Form</h2>
-
-  <p class="lead maxw-narrow">Use whichever feels easier — this form, or a direct email. Both arrive in the same place.</p>
-
-  <form class="contact-form" action="https://formsubmit.co/constantincranz@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="New message — Conscious Creation">
-    <input type="hidden" name="_next" value="https://www.consciouscreation.art/contact.html">
-    <input type="hidden" name="_captcha" value="false">
-    <div class="form-field">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-
-    <div class="form-field">
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-
-    <div class="form-field">
-      <label for="reason">What Brings You</label>
-      <input type="text" id="reason" name="reason" placeholder="A word or two — books, coaching, Sovereign Year, or simply 'a conversation'">
-    </div>
-
-    <div class="form-field">
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" placeholder="Write as you would write to a friend. There is no template you need to follow." required></textarea>
-    </div>
-
-    <div class="text-center" style="margin-top: 32px;">
-      <button type="submit" class="btn btn-primary">Send</button>
-    </div>
-  </form>
-
-  <div class="callout">
-    <div class="label">A Word</div>
-    <p>You will hear back personally. Not from an assistant, not from a CRM, not from an automation. Constantin reads each letter and responds. <em>This may take a few days.</em></p>
-  </div>
-
-  <div class="section-break"></div>
-
-  <h2><span class="label">Before You Begin</span>If You Are Looking for Something Specific</h2>
-
-  <div class="card-grid">
-    <a href="books.html" class="card">
-      <div class="eyebrow">Receive</div>
-      <h3>The Books</h3>
-      <p>The Way of Conscious Creation and The Practice — paired booklets, the foundation.</p>
-      <span class="arrow">Receive →</span>
-    </a>
-    <a href="coaching.html" class="card">
-      <div class="eyebrow">Begin</div>
-      <h3>Coaching</h3>
-      <p>Four ways to walk together — community, group, circle, sessions. Begin here.</p>
-      <span class="arrow">Choose →</span>
-    </a>
-    <a href="sovereign-year.html" class="card">
-      <div class="eyebrow">Inquire</div>
-      <h3>The Sovereign Year</h3>
-      <p>The deepest container. By application. For the twelve who are ready.</p>
-      <span class="arrow">Inquire →</span>
-    </a>
-  </div>
-
-  <div class="decree">
-    The teacher does not call.<br>
-    Life calls.<br>
-    If life is calling — write.
-  </div>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-mark">❖</div>
-  <h3>Conscious Creation</h3>
-  <div class="footer-tagline">A Teaching by Constantin Cranz</div>
-  <div class="footer-contact">
-    <a href="mailto:constantincranz@gmail.com">constantincranz@gmail.com</a>
-    ·
-    <a href="https://www.consciouscreation.art">www.consciouscreation.art</a>
-  </div>
-  <nav class="footer-nav">
-    <a href="index.html">Home</a>
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">❖ Conscious Creation</div>
+  <div class="f-tag">A teaching by Constantin Cranz</div>
+  <nav>
     <a href="about.html">About</a>
     <a href="books.html">Books</a>
     <a href="app.html">App</a>
-    <a href="course.html">Course</a>
     <a href="coaching.html">Coaching</a>
-    <a href="sovereign-year.html">Sovereign Year</a>
     <a href="writings.html">Writings</a>
     <a href="contact.html">Contact</a>
+    <a href="es/index.html">Español</a>
   </nav>
-  <div class="copyright">© Conscious Creation · A teaching brand by Constantin Cranz · Medellín, Colombia</div>
+  <div class="f-copy">© Conscious Creation · Medellín, Colombia · The teachings are universal; the synthesis is ours.</div>
 </footer>
 
-
-
-
-
-
-
+<script src="cc-site.js"></script>
 
 
   <!-- Chatbot: Constantin -->

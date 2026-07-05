@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universal Principles of Life — Constantin Cranz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #1f1647;
+    --violet: #4a2d6e;
+    --gold: #b8924a;
+    --gold-light: #d4b876;
+    --cream: #faf6ec;
+    --paper: #f5f0e3;
+    --ink: #1a1729;
+    --ink-soft: #3d3756;
+    --rule: #c9b78a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: var(--indigo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(184,146,74,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 30% at 50% 50%, rgba(212,184,118,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cover-mark {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 2rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 48px;
+    opacity: 0.8;
+  }
+
+  .cover-rule {
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 48px;
+    opacity: 0.5;
+  }
+
+  .cover h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    color: var(--cream);
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+
+  .cover h1 em {
+    display: block;
+    font-style: italic;
+    color: var(--gold-light);
+    font-size: 0.65em;
+    letter-spacing: 0.06em;
+    margin-top: 12px;
+  }
+
+  .cover-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: rgba(250,246,236,0.6);
+    font-size: 1.15rem;
+    margin-top: 32px;
+    max-width: 480px;
+  }
+
+  .cover-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 64px;
+    justify-content: center;
+  }
+
+  .cover-stat {
+    text-align: center;
+  }
+
+  .cover-stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    display: block;
+  }
+
+  .cover-stat-label {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: rgba(250,246,236,0.5);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cover-author {
+    position: absolute;
+    bottom: 48px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: rgba(184,146,74,0.6);
+    text-transform: uppercase;
+  }
+
+  /* ── NAV ── */
+  .toc-section {
+    background: var(--indigo);
+    padding: 80px 40px;
+  }
+
+  .toc-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .toc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--cream);
+    font-size: 2.2rem;
+    margin-bottom: 48px;
+    font-style: italic;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(184,146,74,0.12);
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .toc-item:hover {
+    background: rgba(184,146,74,0.08);
+    border-color: rgba(184,146,74,0.3);
+  }
+
+  .toc-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--gold);
+    min-width: 24px;
+    letter-spacing: 0.1em;
+  }
+
+  .toc-name {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: rgba(250,246,236,0.7);
+    font-size: 1rem;
+  }
+
+  .toc-count {
+    margin-left: auto;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    color: rgba(184,146,74,0.4);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── FOUNDATION ── */
+  .foundation {
+    background: var(--paper);
+    padding: 100px 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .foundation-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .ornament {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 40px;
+    opacity: 0.7;
+  }
+
+  .foundation h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 2.6rem;
+    color: var(--indigo);
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+
+  .foundation p {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .pull-quote {
+    border-left: 2px solid var(--gold);
+    padding: 20px 32px;
+    margin: 40px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--violet);
+    line-height: 1.4;
+  }
+
+  .how-to-use {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 32px 36px;
+    margin-top: 40px;
+  }
+
+  .how-to-use h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .structure-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .structure-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    color: var(--ink-soft);
+    font-size: 1rem;
+  }
+
+  .structure-list li::before {
+    content: '❖';
+    color: var(--gold);
+    font-size: 0.6rem;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .structure-list strong {
+    color: var(--indigo);
+  }
+
+  /* ── DOMAIN HEADER ── */
+  .domain-header {
+    background: var(--indigo);
+    padding: 80px 40px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .domain-header::after {
+    content: attr(data-roman);
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Cinzel', serif;
+    font-size: 9rem;
+    color: rgba(184,146,74,0.06);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .domain-header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .domain-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .domain-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .domain-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: rgba(212,184,118,0.7);
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+
+  .domain-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    margin-bottom: 20px;
+  }
+
+  .domain-count {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(184,146,74,0.5);
+    text-transform: uppercase;
+  }
+
+  /* ── PRINCIPLES GRID ── */
+  .domain-body {
+    background: var(--cream);
+    padding: 64px 40px;
+  }
+
+  .principles-grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 32px;
+  }
+
+  /* ── PRINCIPLE CARD ── */
+  .principle-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--gold);
+    padding: 36px 32px 32px;
+    position: relative;
+  }
+
+  .principle-card:hover {
+    box-shadow: 0 4px 24px rgba(31,22,71,0.08);
+  }
+
+  .principle-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .principle-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--indigo);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .the-law {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--violet);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .card-section {
+    margin-bottom: 18px;
+  }
+
+  .card-section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .card-section p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .card-apply {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: rgba(31,22,71,0.04);
+    border-left: 2px solid var(--gold);
+  }
+
+  .card-apply .card-section-label {
+    margin-bottom: 8px;
+  }
+
+  .card-apply p {
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ── META PRINCIPLE ── */
+  .meta-section {
+    background: var(--indigo);
+    padding: 120px 40px;
+    text-align: center;
+  }
+
+  .meta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .meta-section .ornament {
+    font-size: 1.6rem;
+    margin-bottom: 48px;
+  }
+
+  .meta-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .meta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  .meta-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    margin: 0 auto 40px;
+  }
+
+  .meta-body {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(250,246,236,0.65);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .meta-decree {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--gold-light);
+    line-height: 1.4;
+    margin: 48px 0;
+  }
+
+  .meta-closing {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(250,246,236,0.4);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  footer .brand {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: rgba(184,146,74,0.5);
+    text-transform: uppercase;
+  }
+
+  /* ── DOMAIN SEPARATOR ── */
+  .domain-separator {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--rule), transparent);
+    margin: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .principles-grid { grid-template-columns: 1fr; }
+    .cover-stats { gap: 24px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .domain-header { padding: 60px 24px 48px; }
+    .domain-body { padding: 48px 20px; }
+    .foundation { padding: 72px 24px; }
+  }
+
+  @media print {
+    .toc-section { display: none; }
+    .domain-header { break-before: page; }
+  }
+  .principle-register{display:inline-block;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--rule);border-radius:2px;margin-bottom:14px;}
+  .principle-register.reg-obs{color:var(--ink-soft);border-color:var(--rule);}
+  .principle-register.reg-psy{color:var(--violet);border-color:rgba(74,45,110,0.35);}
+  .principle-register.reg-spirit{color:var(--gold);border-color:rgba(184,146,74,0.5);}
+</style>
+</head>
+<body>
+
+<!-- ── COVER ── -->
+<section class="cover">
+  <div class="cover-mark">❖</div>
+  <div class="cover-rule"></div>
+  <h1>
+    Universal Principles of Life
+    <em>Laws That Govern Every Domain of Existence</em>
+  </h1>
+  <p class="cover-subtitle">These are not opinions or beliefs. They are operating laws, descriptions of how a lawful world behaves, in every life and every era. And beneath all of them, one recognition in which they rest.</p>
+  <div class="cover-stats">
+    <div class="cover-stat">
+      <span class="cover-stat-num">10</span>
+      <span class="cover-stat-label">Domains</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-num">76</span>
+      <span class="cover-stat-label">Principles</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-num">∞</span>
+      <span class="cover-stat-label">Application</span>
+    </div>
+  </div>
+  <span class="cover-author">Constantin Cranz · Conscious Creation</span>
+</section>
+
+<!-- ── TABLE OF CONTENTS ── -->
+<section class="toc-section">
+  <div class="toc-inner">
+    <span class="section-label">Contents</span>
+    <p class="toc-title">Ten Domains of Universal Law</p>
+    <nav class="toc-grid">
+      <a href="#domain-I" class="toc-item">
+        <span class="toc-num">I</span>
+        <span class="toc-name">Physical &amp; Natural</span>
+        <span class="toc-count">10</span>
+      </a>
+      <a href="#domain-II" class="toc-item">
+        <span class="toc-num">II</span>
+        <span class="toc-name">Mental &amp; Cognitive</span>
+        <span class="toc-count">10</span>
+      </a>
+      <a href="#domain-III" class="toc-item">
+        <span class="toc-num">III</span>
+        <span class="toc-name">Emotional</span>
+        <span class="toc-count">9</span>
+      </a>
+      <a href="#domain-IV" class="toc-item">
+        <span class="toc-num">IV</span>
+        <span class="toc-name">Spiritual &amp; Consciousness</span>
+        <span class="toc-count">6</span>
+      </a>
+      <a href="#domain-V" class="toc-item">
+        <span class="toc-num">V</span>
+        <span class="toc-name">Financial &amp; Abundance</span>
+        <span class="toc-count">8</span>
+      </a>
+      <a href="#domain-VI" class="toc-item">
+        <span class="toc-num">VI</span>
+        <span class="toc-name">Growth &amp; Evolution</span>
+        <span class="toc-count">9</span>
+      </a>
+      <a href="#domain-VII" class="toc-item">
+        <span class="toc-num">VII</span>
+        <span class="toc-name">Suffering &amp; Healing</span>
+        <span class="toc-count">6</span>
+      </a>
+      <a href="#domain-VIII" class="toc-item">
+        <span class="toc-num">VIII</span>
+        <span class="toc-name">Relational &amp; Social</span>
+        <span class="toc-count">6</span>
+      </a>
+      <a href="#domain-IX" class="toc-item">
+        <span class="toc-num">IX</span>
+        <span class="toc-name">Energy &amp; Vibration</span>
+        <span class="toc-count">5</span>
+      </a>
+      <a href="#domain-X" class="toc-item">
+        <span class="toc-num">X</span>
+        <span class="toc-name">Creation</span>
+        <span class="toc-count">7</span>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- ── FOUNDATION ── -->
+<section class="foundation">
+  <div class="foundation-inner">
+    <span class="ornament">❖</span>
+    <h2>What Is a Principle?</h2>
+    <p>A principle is not a belief, an opinion, or a cultural preference. It is a fundamental operating law of reality.</p>
+    <p>Principles operate whether or not you are aware of them. They do not require your agreement, your faith, or your understanding. Gravity does not ask your permission. The Law of Cause and Effect does not pause for your belief system. Entropy does not consult your preferences before beginning its work.</p>
+    <p>A principle is a law, something that is true for every race, culture, gender, religion, and era. It is independent of personality. It is not true "for some people." It is structurally woven into the fabric of how reality operates. This is what distinguishes a principle from a preference, a strategy from a foundation, wisdom from mere advice.</p>
+
+    <div class="pull-quote">
+      Principles are the territory. Everything else is a map.<br>
+      <small style="font-size:0.6em; letter-spacing:0.1em; opacity:0.6;">When you understand the territory, no map can mislead you.</small>
+    </div>
+
+    <p>We live in an era saturated with strategies, frameworks, hacks, and techniques, most of which produce temporary results at best. The reason is simple. They work on symptoms while the cause goes untouched. They address the surface and leave the underlying structure that generates it exactly where it was.</p>
+    <p>Principles are different. When you understand and align with a genuine principle, you are working at the causal level of reality, the level from which all effects ultimately arise. This produces results that are durable, transferable across domains, and increasingly effortless, because you are finally working with the grain of reality.</p>
+    <p>To know a principle once is easy. The practice is remembering and embodying it, especially in the moments when forgetting is most tempting.</p>
+    <p>One thing more, and it changes how the whole book is read. A principle taken hold of from lack (<em>something is missing, and this law will help me get it</em>) quietly becomes a lever you strain against the world with. The same principle, recognised from wholeness, stops being a lever and becomes simply how creation already moves. The law does not change; the one who stands under it does. The recognition that makes the difference is named on the page that follows.</p>
+
+    <div class="how-to-use">
+      <h3>How to Use This Guide</h3>
+      <ul class="structure-list">
+        <li><span><strong>The Law:</strong> the principle stated in its most essential, distilled form.</span></li>
+        <li><span><strong>What It Is:</strong> a clear description of the principle and how it operates.</span></li>
+        <li><span><strong>Why It Matters:</strong> why this principle has profound implications for your life and growth.</span></li>
+        <li><span><strong>How to Apply It:</strong> one concrete practice or inquiry for immediate embodiment.</span></li>
+      </ul>
+      <p style="margin-top:24px; font-size:0.98rem; color:var(--ink-soft); font-style:italic; line-height:1.7;">And hold one honest question over every principle as you read: is this something you can <strong style="font-style:normal;">observe</strong>, something <strong style="font-style:normal;">psychology</strong> confirms, or a <strong style="font-style:normal;">spiritual insight</strong> offered for your own testing? Knowing which is which keeps the book honest. Where it speaks with certainty, hear the certainty of practice, not of proof, and test everything in the laboratory of your own life.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN I — PHYSICAL & NATURAL
+════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════
+     THE ONE RECOGNITION BENEATH THE LAWS
+════════════════════════════════════════ -->
+<section class="foundation" style="background:var(--indigo);">
+  <div class="foundation-inner">
+    <span class="ornament" style="color:var(--gold-light);">❖</span>
+    <h2 style="color:var(--cream);">The One Recognition<br>Beneath the Laws</h2>
+    <p style="color:rgba(250,246,236,0.78);">Every principle in this book is true at the level it speaks to, the level of form, where a lawful world behaves in lawful ways. None of it is being taken back. But before the ten domains begin, one recognition has to be set beneath them, or the whole book will be read as the ego reads everything: as a set of laws to master, leverage, and use to get what is missing.</p>
+    <p style="color:rgba(250,246,236,0.78);">Nothing is missing. You are not the doer. What you call creation is the extending of what you already are, never the acquiring of something you lack. The laws that follow describe how the world of form behaves. This recognition is what the world of form is appearing <em style="color:var(--gold-light);">within</em>.</p>
+    <div class="pull-quote" style="color:var(--gold-light); border-left-color:var(--gold);">Read each law twice — first as how the world works, and then as the texture of a world arising in awareness, where there is finally nothing to get, and no separate one to get it.</div>
+    <p style="color:rgba(250,246,236,0.78);">Held this way, the principles are a bridge, not a home. They carry you across, from the strain of <em style="color:var(--gold-light);">making</em> toward the ease of <em style="color:var(--gold-light);">creating</em>. And the day a law has done its work, you will notice you are no longer applying it. You are simply living as the one in whom nothing was ever missing. That one is what the final page returns you to. Everything between here and there is the bridge.</p>
+  </div>
+</section>
+
+<div class="domain-separator"></div>
+<section id="domain-I">
+  <div class="domain-header" data-roman="I">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain I · Universal Principles of Life</span>
+      <h2 class="domain-title">Physical &amp; Natural<br>Principles</h2>
+      <p class="domain-subtitle">The Laws Written Into the Fabric of Reality</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">10 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 1</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Gravity</h3>
+        <p class="the-law">Every mass attracts every other mass. What goes up must come down.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>The most familiar of nature's laws: every object with mass exerts a pull on every other. It is universal, inescapable, and constant. Nothing in the physical world is exempt.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>Gravity is a metaphor for foundational law. Just as no object floats free of physical gravity, no person floats free of the deeper laws that govern consciousness, behavior, and consequence. Humility before law is where wisdom begins.</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>Where in your life are you acting as though certain laws do not apply to you? Notice the assumption of exemption, and return to ground.</p>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 2</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Entropy</h3>
+        <p class="the-law">Without energy input, all systems move from order to disorder.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>The Second Law of Thermodynamics: left untended, everything tends toward dissolution. Relationships, businesses, bodies, habits all require ongoing energy investment to maintain coherence.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>Maintenance is not failure. It is a requirement of existence in form. Entropy operates regardless; the only live question is whether you are investing enough energy in what matters most.</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>Identify one domain of your life that has been drifting toward disorder for lack of attention. What single act of investment would begin to restore coherence today?</p>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 3</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Conservation of Energy</h3>
+        <p class="the-law">Energy is never created or destroyed, only transformed.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>The First Law of Thermodynamics. Energy changes form but never disappears. What appears to be loss is always transformation into another state.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>Nothing is truly lost. What appears as ending is transformation. Grief, endings, and apparent failure are all energy moving into new form. This shifts the relationship to loss at a fundamental level.</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>Where have you been treating something as a loss that is actually a transformation? What new form might that energy be taking?</p>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 4</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Cause &amp; Effect</h3>
+        <p class="the-law">Every effect has a prior cause. Nothing arises from nothing.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>Causality is the bedrock of reality. Every condition in your life is the effect of prior causes, many of them invisible, internal, or long past. There are no accidents in a lawful universe.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>If every effect has a cause, then you can always trace suffering back to its root and address it there, where it actually lives, instead of endlessly managing symptoms. This is the basis of all genuine change.</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>Choose one persistent problem in your life. Rather than asking "how do I fix this," ask: "what is the deeper cause this is an effect of?" Go two levels deeper than your first answer.</p>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 5</span>
+        <span class="principle-register reg-spirit">Observable · Spiritual Insight</span>
+        <h3 class="principle-name">Resonance</h3>
+        <p class="the-law">Systems vibrating at the same frequency naturally synchronize.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>When two oscillating systems come into proximity, they tend to synchronize. This is the phenomenon of sympathetic resonance, and it operates in physics, biology, psychology, and social dynamics.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>This is not the law of attraction, where a separate universe delivers what you order. It is correspondence: the outer answers the inner because they were never two. Nothing distant is being magnetised toward a self that lacks it. What meets you matches the state you are already extending. The inner state is the tuning fork the world resonates with.</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>Stop asking what to broadcast in order to get. Ask instead: what state am I extending right now, that of one who already has, or one who still lacks? The shift is never out in the world. It is in which of these you are being.</p>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 6</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Polarity</h3>
+        <p class="the-law">Everything in nature has an opposite pole. The poles are expressions of the same thing.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>Hot and cold are the same phenomenon, temperature, at different degrees. Light and dark, expansion and contraction, love and fear: all polarities are expressions of a single continuum.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>What you resist is not your opposite. It is you, expressed at another degree. This dissolves the war between self and shadow, and opens the possibility of integration rather than suppression.</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>Name something in yourself or another that you resist or judge. Now ask: at what degree of the same spectrum is this quality expressing? What is it the underside of?</p>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 7</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Rhythm &amp; Cycles</h3>
+        <p class="the-law">All of nature moves in cycles. Everything that rises also falls, and rises again.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>Seasons, tides, breath, heartbeat, birth and death: all of reality moves in rhythmic cycles. No state is permanent. Every phase naturally gives way to the next.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>Most suffering around change comes from treating phases as permanent states. Knowing you are in a cycle, not a verdict, transforms the entire experience of difficulty and success alike.</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>What phase of a cycle are you currently in, whether in your business, body, relationships, or inner life? How would your behavior change if you fully trusted the cycle?</p>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 8</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Least Resistance</h3>
+        <p class="the-law">Energy always flows through the path of least resistance.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>Water finds the lowest ground. Electricity takes the shortest path. Thought defaults to habitual grooves. Life-force always moves in the direction of least obstruction.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>Understanding this principle turns strategy upside down. Forcing energy through resistance stops being the move; the master question becomes this: how do I remove the obstruction so that what I desire flows naturally?</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>In an area where you are pushing hard and getting little return, ask: what is the obstruction? What would need to be removed, not added, to allow flow?</p>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 9</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Homeostasis</h3>
+        <p class="the-law">All biological systems self-regulate toward balance. The organism always seeks equilibrium.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>The body maintains temperature, pH, and countless other variables within precise ranges. Any deviation triggers automatic correction. This same principle operates in psychological and social systems.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>The nervous system's drive toward a known equilibrium, even an unhealthy one, explains why change is difficult and why the "pull back" to old patterns is not weakness but biology. Understanding this removes self-blame and opens the door to deliberate recalibration.</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>What is the current "set point" of your identity, the baseline your system returns to when threatened? Is that set point aligned with who you are becoming?</p>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 10</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Evolution &amp; Adaptation</h3>
+        <p class="the-law">What does not adapt to its environment eventually ceases. What serves life persists.</p>
+        <div class="card-section">
+          <span class="card-section-label">What It Is</span>
+          <p>Life selects. Forms that serve the continuation and expansion of life persist; those that do not are released. This is not cruelty but the intelligence of life choosing itself.</p>
+        </div>
+        <div class="card-section">
+          <span class="card-section-label">Why It Matters</span>
+          <p>Rigidity is the precursor to extinction. The capacity to receive new information and reorganize, to evolve, is not optional for anything that wishes to remain alive and relevant.</p>
+        </div>
+        <div class="card-apply">
+          <span class="card-section-label">How to Apply It</span>
+          <p>Where is your current form (identity, model, relationship pattern, or belief) no longer adapted to the environment you actually inhabit? What wants to evolve?</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN II — MENTAL & COGNITIVE
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section id="domain-II">
+  <div class="domain-header" data-roman="II">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain II · Universal Principles of Life</span>
+      <h2 class="domain-title">Mental &amp; Cognitive<br>Principles</h2>
+      <p class="domain-subtitle">The Laws That Govern Thought, Belief, and Perception</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">10 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 11</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Thought Precedes Form</h3>
+        <p class="the-law">Every physical reality was first a thought. Consciousness is the first cause of material reality.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Before any structure, relationship, or condition exists in the physical world, it existed first as an idea, intention, or image in a mind. Thought is reality's origin point, woven through it, present at the root of everything that takes form.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>If thought precedes form, then the most powerful intervention in any area of life is at the level of thought. Change what you are thinking, truly change it, and you change what takes form.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>For one day, treat every external condition in your life as the externalization of a prior inner thought or belief. What does your outer life reveal about your inner life?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 12</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Confirmation Bias</h3>
+        <p class="the-law">The mind finds evidence for what it already believes. Belief shapes perception, not the reverse.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The brain filters the roughly 11 million bits of information available per second down to roughly 40 bits of conscious experience, and the filter is determined by existing beliefs. You see what you are already looking for.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>This means that "seeing is believing" is backwards. Believing is seeing. The world is confirming your existing map, not revealing objective truth. This is why changing beliefs, rather than gathering more evidence, is the leverage point.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Choose a belief that limits you. For one week, actively look for evidence that contradicts it. Notice how much evidence was always there, invisible only because you were not looking for it.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 13</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">The Map Is Not the Territory</h3>
+        <p class="the-law">Every mind operates from a model of reality, not reality itself. The model always has gaps.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Alfred Korzybski's foundational insight: no representation is complete. Our beliefs, worldviews, and conceptual frameworks are maps, useful but never identical to the living terrain they describe.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Suffering arises when we mistake the map for the territory, when we defend our model of reality more fiercely than we investigate reality itself. All genuine growth requires updating the map.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Where are you most certain about how things are? That certainty is worth examining. What are you not seeing because your map says it cannot be there?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 14</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Neuroplasticity</h3>
+        <p class="the-law">The brain rewires in response to repeated thought and experience. You are never fixed.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Neurons that fire together wire together. Every repeated thought, emotion, or behavior strengthens the neural pathway associated with it. Every unused pathway weakens. The brain is living architecture, rebuilding itself with every repetition.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>No pattern is permanent, and no identity is fixed. The person you believe yourself to be is a set of strong neural pathways reinforced by repetition. New repetition builds new identity. This is not metaphor; it is neuroscience.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>What identity are you building with today's repeated thoughts? Are they strengthening the pathways of who you are becoming, or reinforcing who you were?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 15</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">The Reticular Activating System</h3>
+        <p class="the-law">The mind finds what it is focused on. Attention determines what enters awareness.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The RAS is a neurological filter that screens incoming information based on what the brain has been primed to find relevant. Focus on lack, and the brain finds more lack. Focus on opportunity, and it finds more opportunity.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>What you call reality is a filtered slice of it, curated by your dominant focus. The most powerful use of attention is to aim it deliberately at what you intend to create.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Each morning, identify three things you want your RAS filtering for today — conditions to notice, the way you would notice a friend's face in a crowd. Watch what appears.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 16</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Cognitive Dissonance</h3>
+        <p class="the-law">The mind cannot hold two contradictory beliefs simultaneously without tension. One will yield.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>When beliefs or behaviors conflict with each other, the resulting psychological discomfort (cognitive dissonance) drives the mind toward resolution. Either the belief changes, the behavior changes, or rationalization occurs.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Knowing this, you can use dissonance deliberately, embodying the new identity before you feel fully aligned with it, and letting the dissonance pressure the old belief to yield.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Where in your life are you holding two contradictory beliefs? Name them both. Which one do you want to win? What behavior change would put pressure on the old one?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 17</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">The Pygmalion Effect</h3>
+        <p class="the-law">Expectation shapes outcome. What we expect of others, and of ourselves, tends to come about.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Repeatedly demonstrated in research: when teachers expect students to excel, they do. When leaders expect teams to rise, they rise. Expectation communicates itself through a thousand subtle cues and shapes the response accordingly.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>You are always sending expectations, to others and to yourself. The question is whether those expectations are empowering or diminishing. The mirror responds to what you hold toward it.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>What do you truly expect of yourself, beneath the stated intention? Honest answer. Now ask what that expectation is creating.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 18</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Mental Rehearsal</h3>
+        <p class="the-law">The nervous system cannot reliably distinguish between a vividly imagined event and a real one.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Neuroscience confirms that vivid mental rehearsal activates the same neural pathways as actual physical performance. Athletes, surgeons, and performers use this principle deliberately. It is not visualization as wishful thinking; it is neural training.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>You can rehearse yourself into a new identity. Every vivid imagining of the person you are becoming strengthens the neural architecture of that version of you.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Spend five minutes each morning in vivid, felt-sense rehearsal of one specific scene from your desired future, not as if you want it, but as if you are already in it.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 19</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">The Subconscious Drives Behavior</h3>
+        <p class="the-law">The conscious mind sets direction; the subconscious executes. Most behavior originates below awareness.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Neuroscientists estimate that 95–99% of brain activity operates below the level of conscious awareness. The programs running in the subconscious, mostly formed before age seven, determine the vast majority of automatic behavior.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Willpower operates from the 1–5% of conscious mind. This is why "trying harder" rarely produces lasting change. The leverage point is the subconscious, reached through repetition, emotion, imagination, and hypnagogic states.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Identify one pattern of behavior you have been unable to change through willpower alone. What subconscious belief or program might be running it? What would need to be installed at the deeper level?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 20</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">Attention Is Creative</h3>
+        <p class="the-law">Whatever receives your sustained attention grows. Attention is not passive observation; it is active participation in creation.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>From quantum physics to psychology: the act of observation participates in what it observes. What you attend to, you strengthen and help bring into being. This is true of thoughts, emotions, relationships, and material conditions.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Attention is not a wand that summons distant objects. It is participation: what you rest your awareness in, you extend, and what you extend, you live inside as your world. The sum of your attention is the shape of the life you are already creating from within.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Audit your attention for one day. Where does your mind go most readily: problems or possibilities, past or future, what is missing or what is present? This audit reveals your creative output.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN III — EMOTIONAL
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section id="domain-III">
+  <div class="domain-header" data-roman="III">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain III · Universal Principles of Life</span>
+      <h2 class="domain-title">Emotional<br>Principles</h2>
+      <p class="domain-subtitle">The Laws Governing the Inner Life of Feeling</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">9 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 21</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Emotional Contagion</h3>
+        <p class="the-law">Emotions are contagious. We absorb the emotional states of those around us.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Mirror neurons and the limbic system make us automatic resonators with the emotional states of others. We do not experience emotions in isolation. We co-regulate through proximity and attention.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Your emotional environment is active input, shaping you whether you consent to it or not. Who you spend time with, what media you consume, what conversations you participate in: all of these are shaping your emotional baseline.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>For one week, notice whose emotional state you absorb most readily. Then ask: am I choosing this field deliberately, or am I drifting into it?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 22</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Emotion as Information</h3>
+        <p class="the-law">Every emotion is a signal, not a verdict. The feeling is data about your inner state, not about objective reality.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Emotions are the body-mind's intelligence system. They report on the gap between what is and what the system is expecting, needing, or believing. They are messengers, not masters.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Treat them as information, and emotions become navigational tools. Anger points to a boundary violation. Fear points to a perceived threat. Sadness points to loss. Each one has something to tell you.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>The next time a strong emotion arises, pause before reacting. Ask: what is this feeling reporting? What does it need me to know?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 23</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">What Resists, Persists</h3>
+        <p class="the-law">Whatever you resist, you strengthen. Suppressed emotions do not disappear; they amplify.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Psychological research consistently shows that emotional suppression raises autonomic arousal, the opposite of what suppression promises. What is resisted must be held in place, and holding requires energy, and ultimately fails.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The energy used to suppress an emotion is energy withdrawn from creation. And the suppressed emotion accumulates charge until it breaks through. The path is always through, never around.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Identify an emotion you have been suppressing or avoiding. Give it five minutes of full, unguarded attention, not analysis, just presence. Notice what shifts when it is truly met.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 24</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">Emotional Responsibility</h3>
+        <p class="the-law">No one else causes your emotional state. Others may trigger what is already present, but they do not create it.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The trigger activates what is already loaded in the system. Another person can only press a button that was already there, waiting, in you. The charge was yours before they arrived.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>This principle ends victimhood at the emotional level. When you own the reaction as yours, as information about your interior, you recover your power to respond rather than react.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Recall a recent emotional trigger. Let the other person fall out of focus for a moment, and ask: what in me was available to be triggered? What is this reaction revealing about my interior?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 25</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Feeling Is the Secret</h3>
+        <p class="the-law">What you feel to be true, you are already extending. Feeling is the texture of the state you are living from, never a button you press to get something.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>As Neville Goddard and the great mystical traditions affirm: the subconscious mind and the creative field do not respond to what you say you want. They respond to what you feel to be real. Feeling is the language of creation.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>You can affirm all day and change nothing if the felt sense underneath is lack, doubt, or unworthiness, because the feeling, not the words, is the state you are actually extending. And manufactured feeling is only lack wearing a mask; the real thing cannot be worked up to get the thing. Nothing is missing: rest there, and let the feeling already present in that wholeness extend.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Next time you set an intention, go beneath the words: what am I actually feeling as I say this? If it is lack, do not push a better feeling on top of it. Return to the recognition that nothing is missing, and let the feeling rise from there, found, not forced.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 26</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">The Body Keeps the Score</h3>
+        <p class="the-law">Unprocessed emotion is stored in the body as tension, contraction, and physiological pattern.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Bessel van der Kolk's research and centuries of somatic wisdom agree: the body is the storehouse of emotional history. What was not processed emotionally is encoded physically, in posture, breath patterns, muscular armoring, and nervous system regulation.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Talking about an experience is often insufficient for healing, because the experience lives not in the story but in the soma. Genuine healing requires the body's participation.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Where in your body do you carry chronic tension? Place your hand there. Breathe into it. Ask it what it has been holding. Stay with the raw physical sensation and let the story about it fall away.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 27</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">Gratitude Shifts the Field</h3>
+        <p class="the-law">Gratitude is not a sentiment, and not a technique for attracting more. It is the felt recognition that nothing is missing, and that recognition reorients the whole system.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Gratitude that is actually felt, down in the body, activates the parasympathetic nervous system, shifts heart-rate variability to coherent patterns, and reorients the filter of perception from deficit to abundance.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Gratitude is a physiological reset, yes, but more deeply it is honesty. It tells the truth that enough already exists. Practised to get more, it curdles back into lack; practised as the recognition of fullness, it is simply what wholeness feels like from the inside.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Each evening, identify three specific things for which you are genuinely grateful. Keep them small and particular: actual moments from the day, the kind you could almost touch. Feel each one for at least 30 seconds before moving to the next.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 28</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">Acceptance Precedes Change</h3>
+        <p class="the-law">Genuine change becomes possible only after genuine acceptance of what is. Resistance to what is perpetuates it.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Acceptance is the clear-eyed acknowledgment of what is actually present. Not approval, not resignation, not a verdict that things should stay as they are. Without it, all attempted change is based on a distorted premise and meets the resistance of what is being denied.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The paradox of change: the more fully you accept what is, the more naturally it transforms. The energy bound in non-acceptance is the very energy required for transformation.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Name one condition in your life you have been resisting. Practice saying, and meaning, "this is what is." Notice what becomes available when resistance drops.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 29</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Emotional Range Determines Range of Experience</h3>
+        <p class="the-law">The capacity to feel the full spectrum, including difficulty, is the same capacity that allows depth of joy, love, and aliveness.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Brené Brown's research and contemplative wisdom agree: you cannot selectively numb. Narrowing the emotional range to avoid pain also narrows the range of joy, wonder, and genuine connection available.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Emotional availability is the source of aliveness. The willingness to feel everything, including what hurts, is what gives access to the full richness of being human.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Where have you been protecting yourself from feeling something fully? What would it mean to let yourself feel it, completely, for five minutes?</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN IV — SPIRITUAL & CONSCIOUSNESS
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section id="domain-IV">
+  <div class="domain-header" data-roman="IV">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain IV · Universal Principles of Life</span>
+      <h2 class="domain-title">Spiritual &amp; Consciousness<br>Principles</h2>
+      <p class="domain-subtitle">The Laws of Awareness Itself — They Contain and Transcend All Others</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">6 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 30</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Consciousness Is Primary</h3>
+        <p class="the-law">Consciousness is not produced by matter. Consciousness is the ground from which matter arises.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The perennial wisdom of every tradition, and the emerging consensus in quantum physics, point in one direction: what we call "reality" is consciousness expressing itself, through and through. Matter does not produce awareness; awareness is fundamental.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>If consciousness is primary, then working at the level of consciousness is working at the causal level of reality. Inner transformation becomes a cosmological act, the universe shifting at its root through you.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>For one day, live from the assumption that consciousness, your awareness, is primary, and that the world is arising within it, not outside of it. Notice how this shifts your relationship to experience.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 31</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Unity Underlies Apparent Separation</h3>
+        <p class="the-law">At the deepest level, all things arise from and return to One. Separation is a feature of perception, not of reality.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Advaita Vedanta, A Course in Miracles, quantum field theory, and mystical traditions across all cultures agree: beneath the appearance of multiplicity, there is One. One field, one awareness, one Source expressing as apparent many.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Every experience of isolation, alienation, and separation arises from a case of mistaken identity. When the deeper unity is recognized, even momentarily, the fundamental anxiety of existence relaxes.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Sit in silence and notice the awareness reading these words. Is it yours alone, or is it the one awareness looking through the lens of this particular form? Rest in that inquiry.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 32</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Presence Is the Portal</h3>
+        <p class="the-law">The only point of access to Reality, to power, and to genuine transformation is the present moment.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Past and future exist as thought-forms in the present. The living moment, Now, is the only location where anything actually occurs. All genuine action, love, and awareness arise here.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The mind that inhabits the past or future is absent from the only place where life is happening. Presence is the prerequisite for genuine contact with anything real. Without it, the mind touches only its own commentary.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Wherever you are right now, fully arrive. Feel the weight of the body, the texture of the breath, the quality of the air. Rest here for 60 seconds before continuing.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 33</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">The Witness Is Always Free</h3>
+        <p class="the-law">The awareness that observes thought and feeling is never itself the thought or the feeling. The witness cannot be wounded.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>In every experience, no matter how intense, there is an awareness that notices it. This witnessing presence is not inside the experience; it is the space in which the experience arises. That space is always already free.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Identification with thought and feeling produces suffering. Recognition of the witness produces equanimity. The shift comes when you stop trying to escape experience and simply recognize what you actually are: the awareness, not the content.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In a moment of difficulty, ask: who is noticing this? Let your attention settle back into the one who notices, and let the content be whatever it is. Rest there.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 34</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Surrender Amplifies Power</h3>
+        <p class="the-law">True surrender is the release of the small will into the greater Will. What looks like weakness is the strongest move available to you.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The Tao Te Ching, A Course in Miracles, The Way of Mastery, and the Sufi tradition all point to the same recognition: the personal will, operating from separation, is vastly less powerful than the will aligned with the deeper intelligence that governs all things.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Forcing and controlling from the personal will produces exhaustion and limited results. Surrendering into alignment with the deeper current produces effortless power: the action of Wu Wei, the Chinese principle of non-forced doing.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In a situation where you are pushing hard, try this: release your grip, get quiet, and ask: what does this situation actually want to become? Then listen before acting.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 35</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Love Is the Nature of Reality</h3>
+        <p class="the-law">At the deepest level, reality is intelligent, purposive, and fundamentally loving. The universe is not the cold machine it can appear to be.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Across traditions, the ground of being turns out to be conscious love wearing the face of matter. A Course in Miracles states it directly: God is love, and everything real is love expressing. Everything else is a dream of separation.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>If the nature of reality is love, then fear, in all its forms, is always based on a misperception. The work of awakening is not to achieve love but to remove the obstacles to love's recognition.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Choose the most difficult relationship or situation in your life right now. Ask: if the ground of this situation is love, even if I cannot see it, what would that change about how I meet it?</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN V — FINANCIAL & ABUNDANCE
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section id="domain-V">
+  <div class="domain-header" data-roman="V">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain V · Universal Principles of Life</span>
+      <h2 class="domain-title">Financial &amp; Abundance<br>Principles</h2>
+      <p class="domain-subtitle">The Laws Governing Flow, Value, and Prosperity</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">8 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 36</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Value Precedes Money</h3>
+        <p class="the-law">Money is a symbol of value exchanged. Where genuine value is created and communicated, money follows.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Money is a secondary thing, an expression of value that follows after value is made. The question is never "how do I get more money?" but "how do I create and deliver more genuine value?" The first question chases; the second creates.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Obsessive focus on money while neglecting value creation produces anxiety and scarcity. Focus on value creation while releasing the demand for a specific form of return produces abundance and ease.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In your primary work, ask: what is the actual value I am creating for others? Is this value clearly understood by those I serve? Where could the value be deepened?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 37</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Abundance Is the Natural State</h3>
+        <p class="the-law">Scarcity is a learned contraction of consciousness, not an objective feature of reality. Nature is inherently abundant.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Nature produces far more than is needed: trillions of seeds for millions of trees. The scarcity that humans experience is primarily a function of distribution, belief, and contracted consciousness, not of genuine lack.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>If scarcity is a belief, it can be changed. The real work happens upstream of the fight over resources: in the consciousness that perceives and perpetuates limitation in the first place.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Identify the specific story your consciousness tells about why abundance is not available to you. Name it clearly. Then ask: is this a fact, or is it a belief that has become a fact through my consistent thinking?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 38</span>
+        <span class="principle-register reg-spirit">Observable · Spiritual Insight</span>
+        <h3 class="principle-name">Circulation Creates Flow</h3>
+        <p class="the-law">Money, energy, and resources must circulate to remain vital. Hoarding creates stagnation; giving creates flow.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The same principle that governs blood, water, and air governs money: circulation is health; stagnation is death. The hand that clenches to hold cannot receive.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The giving hand and the receiving hand are the same hand. Generosity, given freely and not as manipulation, activates the flow of the same quality of energy back into the system.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Where in your financial life has the hand closed to hold, when it could let things move through? What act of genuine generosity would initiate flow in the system?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 39</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Compound Growth</h3>
+        <p class="the-law">Small, consistent actions compound into extraordinary results over time. The principle operates in finance, skill, and character alike.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Albert Einstein called compound interest the eighth wonder of the world. The same principle applies universally: consistent small investments, in money, habit, relationship, or craft, produce nonlinear returns over time.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Most people overestimate what they can do in a year and underestimate what they can do in a decade. Compound growth rewards patience and consistency beyond what linear thinking can imagine.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Identify one small daily action, in finance, health, craft, or relationship, that, compounded over ten years, would produce an extraordinary result. Begin it today. Track it.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 40</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Identity Determines Income</h3>
+        <p class="the-law">Financial reality expresses the identity being held. You will not long sustain an income inconsistent with your self-image.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The thermostatic principle: the identity system seeks to return to its set point. A person who does not believe they are worth $500,000 will find ways, consciously or unconsciously, to return to a more "comfortable" level, no matter what tactics are employed.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Financial strategy is secondary to identity work. The identity must expand to hold the new reality, or the new reality will not stay. This is why lottery winners often return to their prior financial state within a few years.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>What is the financial identity you are currently operating from? Look past what you say to what you actually believe is possible and appropriate for you. How does your current reality confirm it?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 41</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Leverage Multiplies Output</h3>
+        <p class="the-law">Leverage, in time, capital, relationships, or systems, allows small inputs to produce large outputs.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>A lever allows a small force to move a large weight. Financial and professional leverage, through systems, other people's time, capital, and networks, follows the same principle: the right fulcrum point multiplies force.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Trading time directly for money has a ceiling. Leverage breaks the ceiling. The question is not "how hard am I working?" but "how am I positioned?" A lever in the right place does more than brute force.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In your primary income source, where are you still trading time directly for money? Where is the fulcrum point that would allow you to leverage your expertise beyond direct exchange?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 42</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Risk and Return Are Correlated</h3>
+        <p class="the-law">Higher return requires greater exposure. There is no growth without risk, only different kinds of risk.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>In finance, in life, and in growth, safety and significant return are inversely correlated. The attempt to have both at once, security and extraordinary outcome, is the most common source of stagnation.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The refusal to risk is itself a risk: the risk of a life and a financial situation that never expands. Courage to take calculated risk is not recklessness; it is the price of admission to significant results.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Where are you seeking exceptional outcome while avoiding the corresponding level of risk? Name the risk you have been avoiding. Is the cost of not taking it higher than the cost of taking it?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 43</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Receiving Is a Skill</h3>
+        <p class="the-law">The capacity to receive money, love, support, and appreciation must be cultivated as deliberately as the capacity to give.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Many people are excellent givers but poor receivers. The inability to receive gracefully, without deflection, guilt, or minimization, is a cap on abundance. What cannot be received cannot be held.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Receiving asks something of you: presence, worthiness, the capacity to let value in and let it land. Without this, the flow that is offered has nowhere to go.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>The next time someone offers you a compliment, a gift, or an act of generosity, receive it fully. Do not deflect. Let it land. Say thank you and mean it. Notice any discomfort and stay with it.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN VI — GROWTH & EVOLUTION
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section id="domain-VI">
+  <div class="domain-header" data-roman="VI">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain VI · Universal Principles of Life</span>
+      <h2 class="domain-title">Growth &amp; Evolution<br>Principles</h2>
+      <p class="domain-subtitle">The Laws That Govern Expansion, Mastery, and Becoming</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">9 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 44</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Growth Requires Discomfort</h3>
+        <p class="the-law">Comfort and growth occupy different territories. The edge of discomfort is the growing edge.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Biological, neurological, and psychological growth all require moving beyond the current equilibrium into new territory. What if the discomfort of expansion is not a warning but a confirmation? It is the very feel of growth occurring.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The instinct to retreat from discomfort is the instinct to retreat from growth. Once you learn to read discomfort as a direction, an arrow pointing where the life is, your entire relationship to challenge changes.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Identify the thing you have been avoiding because it is uncomfortable. Recognize it as the growing edge. Take one small step toward it today, just close enough to get familiar with the discomfort. Forget conquering it for now; staying near it is the whole assignment.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 45</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">The 10,000-Hour Principle</h3>
+        <p class="the-law">Mastery in any domain requires sustained, deliberate practice over time. There are no shortcuts to genuine excellence.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Malcolm Gladwell popularized the 10,000-hour threshold identified by Anders Ericsson's research. The number is less important than the principle: deep competence is the product of deliberate, focused repetition over extended time.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The desire for mastery without the willingness to practice is the desire for the fruit without the tree. Mastery is an accumulation of failures survived, skills refined, and understanding deepened by repetition.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In your chosen domain, how many hours of deliberate practice have you invested? What would shift if you committed to deliberate daily practice for the next year?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 46</span>
+        <span class="principle-register reg-obs">Observable Law</span>
+        <h3 class="principle-name">Feedback Accelerates Growth</h3>
+        <p class="the-law">Growth accelerates in proportion to the quality and honesty of feedback received and integrated.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>All systems, whether biological, mechanical, or social, improve through feedback loops. The faster and more accurate the feedback, the faster the adjustment. The person who cannot receive honest feedback is cut off from one of growth's most potent fuels.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Ego defense, the refusal to let feedback in, is growth's primary enemy. Radical openness to information about the gap between current performance and the ideal is the posture of those who grow fastest.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Identify someone in your life whose honest assessment of you would be valuable and uncomfortable. Ask for it this week. Practice receiving it without defending, explaining, or dismissing.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 47</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Identity Is the Ceiling</h3>
+        <p class="the-law">You will not persistently outperform your identity. The identity must expand for results to expand.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Every level of achievement is supported by a corresponding level of identity. When the outer results exceed the inner identity, the system pulls back. When the inner identity expands, the outer results naturally rise to meet it.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>This is why tactics and strategies, without identity-level work, produce temporary results. The container must expand first. Identity is the operating system; behavior is the application.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Ask: who would I need to be to have the results I say I want? Not what would I need to do, but who would I need to be? Start becoming that person in the smallest everyday choices.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 48</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Teaching Deepens Learning</h3>
+        <p class="the-law">The most effective way to master something is to teach it. Teaching forces understanding to become transmissible.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The Protégé Effect: those who learn with the intention of teaching retain more, understand more deeply, and identify gaps in their knowledge more quickly. Teaching is not the end of learning but the acceleration of it.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>If you cannot explain it simply, you do not yet understand it deeply. The discipline of transmitting understanding to another strips away the illusion of comprehension and reveals what you actually know.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Take one concept you are currently studying. Teach it to someone, or write it out, as if explaining to a thoughtful twelve-year-old. Notice where your explanation breaks down. That is where the learning continues.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 49</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Environment Shapes Behavior</h3>
+        <p class="the-law">The environment is an active influence, pulling behavior in its direction whether you notice or not. Design it to make desired behavior effortless.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>James Clear's "architecture of choice" and decades of behavioral research confirm: the environment in which behavior occurs shapes that behavior as powerfully as intention does. Willpower is a limited resource; environmental design is not.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Rather than fighting yourself, design the field. Make what you want to do easy and what you want to avoid difficult. The environment is the most underutilized tool in personal evolution.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Choose one behavior you want to strengthen. What single environmental change would make it significantly easier to perform? Make that change today.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 50</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">The Plateau Precedes the Breakthrough</h3>
+        <p class="the-law">Apparent stagnation often precedes rapid advance. The plateau is not the end; it is consolidation before the next leap.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>In skill acquisition, growth rarely occurs linearly. Periods of apparent stagnation, the plateaus, are actually phases of deep consolidation in which the nervous system is integrating new patterns. Breakthrough follows consolidation.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Most people quit on the plateau, just before the breakthrough. Knowing this transforms the experience of stagnation from evidence of failure to evidence of imminent advance, provided persistence is maintained.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Where in your life do you feel stuck or stagnant right now? Consider the possibility that you are on a plateau, integrating something that will shortly produce a leap. What would it mean to simply stay with the practice?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 51</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">The Beginner's Mind</h3>
+        <p class="the-law">In the beginner's mind there are many possibilities. In the expert's mind, there are few.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Shunryu Suzuki's essential teaching: expertise, if it hardens into certainty, closes the mind to new information. The willingness to not-know, to approach even familiar terrain with fresh eyes, is the condition for genuine discovery.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The expert who cannot return to beginner's mind eventually stops learning. And the world moves. What was mastery yesterday becomes obsolescence if the beginner's openness is not preserved alongside the expert's skill.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In an area where you consider yourself expert, approach it today as if you know nothing. Ask the beginner's question: "what is actually happening here?" and let yourself be surprised.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 52</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">You Become What You Practice</h3>
+        <p class="the-law">Character is built, not bestowed. It is the accumulated result of what you have practiced repeatedly.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Aristotle: "We are what we repeatedly do. Excellence, then, is not an act but a habit." Every quality of character, whether courage, patience, generosity, or discipline, is the downstream effect of its repeated expression.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>You are always practicing something. The question is whether you are practicing deliberately or by default. Every moment of life is simultaneously the expression of current character and the shaping of future character.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Name the quality of character you most want to embody. Now ask: what am I actually practicing, moment to moment, that is building or eroding that quality?</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN VII — SUFFERING & HEALING
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section id="domain-VII">
+  <div class="domain-header" data-roman="VII">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain VII · Universal Principles of Life</span>
+      <h2 class="domain-title">Suffering &amp; Healing<br>Principles</h2>
+      <p class="domain-subtitle">The Laws That Govern Pain, Integration, and the Path Through</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">6 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 53</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">Pain Is Inevitable; Suffering Is Optional</h3>
+        <p class="the-law">Pain is the sensation; suffering is the story added to the sensation. One is biological, the other is chosen.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The Buddhist formulation: the first arrow is pain, and it is unavoidable. The second arrow is suffering: the judgment, resistance, and narrative added to the pain. The second arrow is always optional.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>This distinction liberates. You cannot always prevent pain, but you always have relationship to how you meet it. The story you tell about the pain determines the suffering more than the pain itself.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In a current difficulty, separate the raw sensation from the story about it. What is the actual experience, stripped of interpretation? And what is the second arrow, the story you have added?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 54</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">Resistance Multiplies Suffering</h3>
+        <p class="the-law">The refusal to accept what is present creates as much suffering as the original condition, often more.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Byron Katie's work and contemplative traditions across cultures confirm: the war with reality always produces more pain than reality itself. "It shouldn't be this way" is the source of more human suffering than the circumstance it describes.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Acceptance removes the additional suffering generated by non-acceptance, and that release frees energy for genuine response. You cannot solve a problem you are refusing to see clearly.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In your current difficulty, find the specific "it shouldn't be this way" belief. Question it. Ask: can you absolutely know this is true? What would you be without that thought?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 55</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">The Story Multiplies the Pain</h3>
+        <p class="the-law">The narrative built around an event creates far more suffering than the event itself.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>A relationship ends. The event itself is painful. The story ("I am unlovable, this always happens to me, I will never find what I want") creates suffering that extends indefinitely beyond the event. The story is not the event.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Healing a story is often more important than healing from an event. The event ends; the story continues, and goes on creating suffering, until it is examined, questioned, and released.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Identify your most painful story about yourself or your life. Write it down. Then ask: is this absolutely true? What is the actual event, stripped of the narrative? What story would serve better?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 56</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">Contrast Creates Clarity</h3>
+        <p class="the-law">Suffering often clarifies what matters most. The difficult experience reveals the value that was invisible when it was present.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Health is invisible until illness. Connection is invisible until isolation. Purpose is invisible until emptiness. Contrast, the experience of the opposite, is one of the primary mechanisms through which consciousness discovers what it truly values.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>When the purpose of difficulty is understood, that it is often the clarifying force that reveals what matters most, suffering gains meaning. And meaning, as Viktor Frankl demonstrated, is the most potent medicine for suffering.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>What has your most significant difficulty made clear about what you value, who you are, or what you want? What did you have to lose to know how much it mattered?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 57</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Healing Requires Witnessing</h3>
+        <p class="the-law">What has not been truly seen and acknowledged cannot fully heal. Witnessing, by self or another, is essential.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The wound that is hidden, minimized, or bypassed does not heal. It goes underground. The first act of healing is always acknowledgment: this happened, it mattered, I feel what I feel about it.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Spiritual bypass, the use of spiritual framework to avoid genuine feeling, is a form of non-witnessing. Genuine healing integrates the experience fully, through clear and compassionate seeing. It moves down into the wound and stays there long enough to meet it.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>What experience in your life has never been fully witnessed, by yourself or another? What would it mean to give it your full, compassionate attention, without fixing, spiritualizing, or moving on?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 58</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Meaning Transforms Suffering</h3>
+        <p class="the-law">Suffering held within a meaningful frame is fundamentally different in quality from suffering perceived as purposeless.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Viktor Frankl's foundational insight from Auschwitz: those who survived were those who found meaning in their suffering, not those who avoided it. Meaning does not remove pain; it changes its quality entirely.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The question is not "why is this happening to me?" but "what is this asking of me?" or "what might this be for?" The shift from victim to meaning-maker is the shift from suffering to initiation.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In your current difficulty, ask, and ask it honestly, with no rush to a tidy answer: what might this be for? What could this experience be asking you to become or understand?</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN VIII — RELATIONAL & SOCIAL
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section id="domain-VIII">
+  <div class="domain-header" data-roman="VIII">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain VIII · Universal Principles of Life</span>
+      <h2 class="domain-title">Relational &amp; Social<br>Principles</h2>
+      <p class="domain-subtitle">The Laws Governing Connection, Trust, and Collective Life</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">6 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 59</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">Mirroring</h3>
+        <p class="the-law">We see in others what lives unacknowledged within ourselves, both what we admire and what we judge.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The psychological phenomenon of projection and the spiritual law of correspondence agree: what you react to in another, whether with admiration or judgment, is revealing something about your own interior. Others are mirrors.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Every significant emotional reaction to another person is data about yourself. Knowing this turns relationships from arenas of conflict into laboratories of self-knowledge. The mirror never lies.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Think of a person who strongly irritates or impresses you. Ask: where does this quality live in me, whether expressed, suppressed, or projected? What is this person mirroring?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 60</span>
+        <span class="principle-register reg-psy">Observable · Psychology</span>
+        <h3 class="principle-name">Reciprocity</h3>
+        <p class="the-law">What is given tends to be returned, in relationships, in systems, in nature. The law of return is universal.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Robert Cialdini identified reciprocity as one of the most powerful principles of human influence. It operates beyond conscious choice: when something is given freely, the recipient experiences a pull to return it. This is woven into the fabric of social life.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Understanding reciprocity shifts giving from a transaction to a field condition. What you offer to the field, freely and without demand, conditions the field to return in kind, often through unexpected channels.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>What are you giving freely, without expectation, condition, or score-keeping, in your primary relationships and professional life? And what are you withholding, waiting for the other to give first?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 61</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Trust as Foundation</h3>
+        <p class="the-law">All deep relational and social systems are built on trust. Its presence enables everything; its absence dismantles everything.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Trust is the invisible infrastructure of every relationship, organization, and society. When trust is present, communication, collaboration, and risk-taking become possible. When trust is broken, exponential energy is required to rebuild what was effortlessly sustained before.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Trust is built in drops and lost in buckets. Its cultivation requires consistency: alignment between word and action over time. No amount of competence compensates for a trust deficit.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In your most important relationship, personal or professional, what is the current level of trust? Where has trust eroded? What small, consistent action would begin to rebuild it?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 62</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Communication Creates Reality</h3>
+        <p class="the-law">The quality of communication between people determines the quality of relationship and collective outcome.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Relationship lives in the space between two people, created through communication. It is more than the sum of their separate inner lives. The quality of that space, whether honest, clear, courageous, and present, is the quality of the relationship.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Most relationship problems are communication problems. The people are rarely the issue; the communication between them is incomplete, indirect, or avoidant. The conversation that has not happened is usually the one that matters most.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>What is the conversation you have been avoiding in your most important relationship? What is the cost of continuing to avoid it? What would it take to have it, with honesty, care, and clarity?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 63</span>
+        <span class="principle-register reg-psy">Psychology</span>
+        <h3 class="principle-name">Boundaries Define the Field</h3>
+        <p class="the-law">Clear boundaries create safety within which genuine connection can occur. A boundary is a definition, the line that says where you begin.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>A boundary is not a withdrawal of love but a definition of self: what I will and will not participate in, what serves my growth and what does not. Without this definition, there is no "me" to be in genuine relationship with.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Resentment is always the sign of an unspoken boundary. Burnout is the sign of a boundary violated repeatedly. The capacity to define the field cleanly is prerequisite to genuine, sustainable intimacy in love, friendship, and work.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Where is resentment present in your relationships? Trace it to the unspoken or unenforced boundary beneath it. What needs to be said, clearly and kindly, to restore the definition of the field?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 64</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Collective Coherence</h3>
+        <p class="the-law">Groups aligned in shared intention and coherent field produce outcomes beyond what individual members could achieve alone.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>HeartMath Institute research and organizational science both document the phenomenon of group coherence. When a collection of individuals synchronizes around shared intention and emotional alignment, the group's capacity exceeds the sum of its parts.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The most powerful force in any organization or community is collective coherence, which outlasts and outperforms even the brightest individual. The investment in shared culture, values, and vision is the one that multiplies all others.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In a group you belong to, whether team, family, or community, what is the current coherence level? What shared intention or practice would raise it? What is the one conversation that, if had, would shift the field?</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN IX — ENERGY & VIBRATION
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section id="domain-IX">
+  <div class="domain-header" data-roman="IX">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain IX · Universal Principles of Life</span>
+      <h2 class="domain-title">Energy &amp; Vibration<br>Principles</h2>
+      <p class="domain-subtitle">The Laws Governing the Subtle Architecture of Reality</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">5 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 65</span>
+        <span class="principle-register reg-spirit">Observable · Spiritual Insight</span>
+        <h3 class="principle-name">Everything Is Vibration</h3>
+        <p class="the-law">At the quantum level, all matter is energy vibrating at specific frequencies. Nothing is truly solid.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Quantum physics confirms what mystics have always taught: what appears as solid matter is, at its most fundamental level, energy in vibrational motion. The apparent solidity of the physical world is a perceptual phenomenon, not an ontological one.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Held lightly, this loosens the grip the world's apparent solidity has on you: what looks fixed is far more fluid than it seems. Held wrongly, it becomes one more lever, the "manage your vibration to get what you want" of so much teaching. Let it stay an invitation instead: hold appearances loosely, knowing what they are made of.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Pause right now and become aware of the overall quality, the "felt tone," of your current state. Drop beneath the thoughts about it and feel the vibration itself. This awareness is the beginning of conscious management.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 66</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Higher Frequencies Dissolve Lower</h3>
+        <p class="the-law">Light does not fight darkness; it simply displaces it. Higher vibrational states naturally transform lower ones.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>You cannot make a room darker by adding light. The presence of a higher-frequency state, whether love, peace, clarity, or joy, simply occupies the space the lower state was filling, and the lower state has nowhere left to be. This is why Presence is more powerful than intervention.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The implication for healing, teaching, and leadership is quiet, not grand: you change a field less by intervening in it than by being present within it. This works because presence, unlike force, provokes no resistance; it simply occupies the space. The light is no one's possession, and nothing here depends on your being special or holding something others lack.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>In a situation where you are trying to fix or change something in another, ask: what if I simply became more present, more loving, more clear? What if the shift in my frequency is the only intervention needed?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 67</span>
+        <span class="principle-register reg-spirit">Observable · Spiritual Insight</span>
+        <h3 class="principle-name">Entrainment</h3>
+        <p class="the-law">When two oscillating systems interact, the lower-frequency system tends to rise toward the higher. Presence is contagious.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Christian Huygens discovered in 1665 that pendulum clocks placed on the same wall synchronize over time. This is the phenomenon of entrainment, and it operates between people too: we entrain to the frequency of those we spend time with.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Who you spend time with is a vibrational decision wearing the costume of a lifestyle choice. The environments and people you habitually inhabit are constantly pulling your frequency toward theirs. Choose accordingly.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Who are the three people you spend the most time with? What frequency do they consistently hold? Is that the direction you want to be pulled?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 68</span>
+        <span class="principle-register reg-spirit">Observable · Spiritual Insight</span>
+        <h3 class="principle-name">Thought Is Energetic</h3>
+        <p class="the-law">Thought is not merely symbolic. Its effect on the body that thinks it is measurable; its reach into "the field" and the environment is a spiritual insight offered for your own testing, not a settled fact.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>EEG and heart-coherence research document the measurable effects of thought on the body that thinks it, with suggestive work on effects between people in close proximity. Claims of influence on physical systems at a distance remain unproven, held here as possibility, not established science.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>At minimum, thought is never only private. It shapes the body that thinks it and colours the presence others feel from you. Whether or not it reaches further, the care you give the quality of your thinking is never wasted: you are, at the very least, the first one living inside it.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>For one hour, treat every thought you think as a transmission, something being sent into the field and affecting everything in your environment. Notice how this changes the quality of your thinking.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 69</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">The Field Responds to Feeling</h3>
+        <p class="the-law">It is felt conviction, not the correctness of words, that carries any prayer or intention. And conviction is what remains when you stop pretending anything is missing, never something you work up to get a result.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Across traditions, from Neville Goddard to the I AM Discourses, A Course in Miracles, and Sufi prayer, the consistent teaching is that it is the feeling quality of prayer, intention, or decree that determines its creative power, not the correctness of the words.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Affirmations without feeling are words; intentions without feeling are wishes. The feeling that carries them is the quiet knowing of one who already rests in wholeness, extending what is already so. Try to manufacture it to make the world deliver and you are back in making. This kind of feeling is found, never forced.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Choose one intention you hold. Before repeating it as words, locate the feeling-state that would be present if it were already fully real. Dwell in that feeling for a minute. Then notice the quality difference in the prayer.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DOMAIN X — CREATION
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section id="domain-X">
+  <div class="domain-header" data-roman="X">
+    <div class="domain-header-inner">
+      <span class="domain-eyebrow">Domain X · Universal Principles of Life</span>
+      <h2 class="domain-title">Creation<br>Principles</h2>
+      <p class="domain-subtitle">The Laws of Effortless Extension</p>
+      <div class="domain-rule"></div>
+      <span class="domain-count">7 Principles in This Domain</span>
+    </div>
+  </div>
+  <div class="domain-body">
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 70</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Inner Creates Outer</h3>
+        <p class="the-law">The inner state of consciousness is always the first cause of outer experience. As within, so without.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The Hermetic axiom, "As above, so below; as within, so without," is the master principle of creation. The outer world reflects back the dominant inner state being held by the consciousness inhabiting it, like a face in a mirror.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>This principle ends the endless attempt to change outer conditions without first changing the inner state they reflect. And it restores not power over the world, but responsibility for the state you meet it from, which is the only freedom that was ever truly yours.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Pick the outer condition in your life you most want to change. Ask, gently, with curiosity instead of blame: what inner state is generating this? Then work on the inner state directly.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 71</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">Imagination Is the Creative Faculty</h3>
+        <p class="the-law">Imagination is the faculty through which the formless extends into form: the imagining of the one Mind, happening through you. It was never a tool you wield to get what is missing.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Neville Goddard named it plainly: "Imagination creates reality." Held rightly, this is the willingness to let the inner reality the outer follows from be one of wholeness, the imagining of a self that already has, rather than a self busy manufacturing what it fears it lacks. Far from escapism, this is how creation has always taken form.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Everything human-made was first imagined. The chair, the city, the relationship, the business: all of it was imagined before it was built. To imagine consciously is not to seize a power; it is to stop imagining from lack, and let what extends through you arise from fullness instead.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Before sleep tonight, in the drowsy state between waking and sleeping, rest in a scene in which nothing is missing. Let the straining toward a desire dissolve, and simply dwell as the one for whom it is already so. Inhabit it, feel it, and let it be the last thing awareness holds before sleep.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 72</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">The State Assumed Is the State Expressed</h3>
+        <p class="the-law">Whatever state of being you live from, not merely wish for, expresses itself as your experience.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>The Law of Assumption, as Neville taught it: creation does not answer what you desire. It answers what you are. And the state you assume is the recognition of something already true in you, now lived as your present condition, never a costume reached for from outside. What you assume to be so is what continuously extends as your experience.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>You cannot wish your way into a new reality. You can only be your way into it. The assumption, lived from and not aimed at, is the creative act.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Ask: what am I currently assuming to be true about myself? Look underneath the words, into what you actually live from, in your choices and reactions. That assumption is what is being made real. Is it the assumption you want?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 73</span>
+        <span class="principle-register reg-spirit">Observable · Spiritual Insight</span>
+        <h3 class="principle-name">Gestation Period</h3>
+        <p class="the-law">Every seed of intention requires a gestation period before it appears in form. The unseen work precedes the visible result.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>An oak tree does not appear the day the acorn is planted. A child does not appear the day of conception. Every genuine creation has a gestation period, a span of invisible development during which the result is being formed but not yet visible.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>The seed dug up to check its progress will not grow. Trust here means resting in the state and letting it ripen, no longer needing to verify that it is on its way. Waiting anxiously for a package to arrive is only grasping dressed as patience.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>What did you plant and then abandon because nothing had yet visibly appeared? Was it perhaps still in gestation? And what would "staying in the state," resting as the one for whom it is already so, look like now, without digging up the soil to check?</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 74</span>
+        <span class="principle-register reg-spirit">Psychology · Spiritual Insight</span>
+        <h3 class="principle-name">Clarity of Essence, Openness of Form</h3>
+        <p class="the-law">Be vivid about the essence, the quality of being you are extending. Hold the particular form with an open hand. Clarity belongs to the state; the outcome belongs to an intelligence larger than yours.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>There are two different things here, and the old teaching confused them. There is clarity of <em>essence</em>, the felt quality of the life you are living from, and there is specification of <em>form</em>: the exact object, person, amount, timing. Be a laser on the first. Be open-handed with the second. To dictate the form is to demand that a larger intelligence deliver precisely what the small mind already pictured, which is making, not creating.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Vagueness about the essence is not humility; it is dissipation. "I'd like things to be better" extends nothing in particular. And precision about the form, far from being power, is the grip itself. If a specific form arrives on its own, out of genuine clear seeing rather than the mind's insistence, follow it gladly; specificity is welcome when it comes that way. It is simply never required, and never to be forced. <em>This, or something greater.</em></p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Take your most important intention and separate the two layers. What is the <em>essence</em>, the quality of being beneath the thing? Get vivid there: what does it feel like to live as that? Then notice any exact form you have been gripping, and open your hand around it, keeping the essence and releasing the prescription. If a clear image still wants to stay, let it; just hold it lightly.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 75</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">The Open Hand</h3>
+        <p class="the-law">Grasping says, with every squeeze, "this is missing." The open hand is not a cleverer way to get; it is the recognition that nothing was ever missing to grasp.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Here is the trap most "letting go" falls into: releasing as a technique. <em>I will stop wanting it so that it will come.</em> That is grasping in disguise, and the wanting still leaks through. Real release is neither indifference nor strategy. It is the settled knowing that what matters is already whole, so the hand has no reason to close, and the form is left to an intelligence deeper than the planning mind.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Grasping contracts; openness rests. But notice the difference between "it is done, so now it will arrive" (still waiting, still wanting) and "it is done" meaning there was never a gap to close. The first is release as a bargain. The second is peace, and peace is the only posture from which creation extends without strain.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Take your primary intention and feel for the grip, the subtle "but I need this." See if the hand can open, for the simple reason that in the state you already are, nothing is actually lacking. Opening it to make the thing arrive sooner would only be the grip in disguise. Notice the quality shift. If the grip returns, no matter; opening it again is the practice.</p></div>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-number">Principle 76</span>
+        <span class="principle-register reg-spirit">Spiritual Insight</span>
+        <h3 class="principle-name">The End Contains the Means</h3>
+        <p class="the-law">Do not strain toward an end out ahead of you. Live as the whole one you already are, and the path extends itself from there.</p>
+        <div class="card-section"><span class="card-section-label">What It Is</span><p>Neville Goddard, the Way of Mastery, and the I AM Discourses converge here: do not begin with the means and labour toward the end. But hear it at the right depth. The "end" is the present recognition of wholeness, not some future prize you reverse-engineer toward. Lived from now, it is not a destination at all; it is the ground the path unfolds out of.</p></div>
+        <div class="card-section"><span class="card-section-label">Why It Matters</span><p>Most people chase the "how" before resting in the "what." This is backwards. The means appear not because you out-strategized the future, but because you stopped obstructing what was already moving. Live as the fulfilled one, and the way opens, often through channels the planning mind could never have predicted.</p></div>
+        <div class="card-apply"><span class="card-section-label">How to Apply It</span><p>Set down the planning from here-toward-there for a moment. Rest as the one for whom it is already so — you, now, with nothing missing, no future self required. From inside that, ask gently: what naturally wants to happen next? Let the step arrive rather than forcing it.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     META-PRINCIPLE
+════════════════════════════════════════ -->
+<div class="domain-separator"></div>
+<section class="meta-section">
+  <div class="meta-inner">
+    <span class="ornament">❖</span>
+    <span class="meta-eyebrow">The Meta-Principle · The One Beneath All</span>
+
+    <h2 class="meta-title">You Are That<br>Which Is Aware</h2>
+
+    <div class="meta-rule"></div>
+
+    <p class="meta-body">All 76 principles described in this guide operate within Consciousness. They are the operating laws of a universe that is, at its most fundamental level, an expression of One Aware Presence.</p>
+
+    <p class="meta-body">The one who knows the principles is prior to all principles. The awareness reading these words has never been limited, broken, or separate from its Source. It has only temporarily forgotten what it is.</p>
+
+    <div class="meta-decree">
+      You Are That Which Is Aware —<br>
+      and That has never been limited, broken, or separate.
+    </div>
+
+    <div class="meta-rule"></div>
+
+    <p class="meta-closing">The principles are not the destination. They are fingers pointing at the moon. Use them. Apply them, embody them, teach them. And then, in the depths of stillness, rest in the recognition that the one who applies all principles is already, and has always been, free.</p>
+  </div>
+</section>
+
+<footer>
+  <p class="brand">❖ &nbsp; Constantin Cranz &nbsp; · &nbsp; Conscious Creation &nbsp; ❖</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ascension Manual — A Path of Remembering · Constantin Cranz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#1f1647; --violet:#4a2d6e; --gold:#b8924a; --gold-light:#d4b876; --gold-pale:#e8d9b0;
+    --cream:#faf6ec; --paper:#f5f0e3; --ink:#1a1729; --ink-soft:#3d3756; --ink-dim:#6b5e7c; --rule:#c9b78a;
+    --shadow:rgba(31,22,71,0.13);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--ink);font-family:'EB Garamond',Georgia,serif;font-size:1.18rem;line-height:1.78;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--gold-pale);}
+  em{color:inherit;}
+  /* COVER */
+  .cover{min-height:100vh;background:var(--indigo);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 40px;position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 45%,rgba(184,146,74,0.10),transparent 70%);pointer-events:none;}
+  .cover .kicker{font-family:'Cinzel',serif;color:var(--gold);font-size:0.72rem;letter-spacing:0.34em;text-transform:uppercase;margin-bottom:40px;opacity:0.85;}
+  .cover .mark{color:var(--gold);font-size:1.5rem;margin-bottom:36px;opacity:0.8;}
+  .cover h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3rem,8vw,5.6rem);color:var(--cream);line-height:1.04;letter-spacing:0.01em;}
+  .cover h1 .a{display:block;}
+  .cover .sub{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-light);font-size:clamp(1.3rem,3vw,1.9rem);margin-top:18px;}
+  .cover .by{position:absolute;bottom:46px;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.26em;color:rgba(184,146,74,0.65);text-transform:uppercase;}
+  /* ONE LINE */
+  .oneline{background:var(--paper);padding:120px 40px;text-align:center;border-bottom:1px solid var(--rule);}
+  .oneline .lab{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:36px;display:block;}
+  .oneline p{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(2rem,5vw,3.2rem);color:var(--indigo);line-height:1.25;max-width:760px;margin:0 auto;}
+  /* GENERIC WRAP */
+  .wrap{max-width:720px;margin:0 auto;padding:0 1.6rem;}
+  /* TOC */
+  .toc{background:var(--cream);padding:96px 40px;}
+  .toc-inner{max-width:760px;margin:0 auto;}
+  .toc .lab{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:36px;display:block;}
+  .toc-part{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--violet);margin:30px 0 10px;}
+  .toc a{display:flex;gap:16px;align-items:baseline;text-decoration:none;color:var(--ink-soft);padding:7px 0;border-bottom:1px solid rgba(201,183,138,0.35);}
+  .toc a:hover{color:var(--violet);}
+  .toc .rn{font-family:'Cinzel',serif;font-size:0.72rem;color:var(--gold);min-width:34px;letter-spacing:0.1em;}
+  .toc .nm{font-family:'Cormorant Garamond',serif;font-size:1.3rem;}
+  .toc .nw{margin-left:auto;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.18em;color:var(--gold);border:1px solid rgba(184,146,74,0.5);border-radius:2px;padding:2px 7px;text-transform:uppercase;align-self:center;}
+  /* PART DIVIDER */
+  .part{background:var(--indigo);padding:110px 40px;text-align:center;position:relative;overflow:hidden;}
+  .part::after{content:attr(data-rn);position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:'Cinzel',serif;font-size:11rem;color:rgba(184,146,74,0.06);line-height:1;pointer-events:none;}
+  .part .pk{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:22px;}
+  .part h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.4rem,6vw,4rem);color:var(--cream);line-height:1.1;}
+  .part .ps{font-family:'EB Garamond',serif;font-style:italic;color:rgba(212,184,118,0.75);font-size:1.12rem;margin-top:18px;max-width:540px;margin-left:auto;margin-right:auto;}
+  /* CHAPTER */
+  .chapter{padding:84px 40px;border-bottom:1px solid rgba(201,183,138,0.4);}
+  .chapter.alt{background:var(--paper);}
+  .ch-num{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px;}
+  .ch-num .new{color:var(--violet);border:1px solid rgba(74,45,110,0.4);border-radius:2px;padding:2px 7px;margin-left:10px;font-size:0.85em;}
+  h2.ch-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2.2rem,5vw,3.2rem);color:var(--indigo);line-height:1.12;margin-bottom:22px;}
+  .ch-epigraph{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;color:var(--violet);line-height:1.4;border-left:2px solid var(--gold);padding:6px 0 6px 22px;margin:0 0 34px;}
+  .ch-epigraph .src{display:block;font-family:'Cinzel',serif;font-style:normal;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:10px;}
+  .chapter p{color:var(--ink-soft);margin:1.05rem 0;}
+  .chapter p strong{color:var(--indigo);font-weight:600;}
+  .lead{font-size:1.05em;}
+  .pull{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--violet);line-height:1.35;margin:34px 0;padding-left:24px;border-left:2px solid var(--gold);}
+  .qblock{margin:30px 0;padding:22px 26px;background:var(--cream);border:1px solid var(--rule);border-radius:3px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;color:var(--ink-soft);line-height:1.45;}
+  .chapter.alt .qblock{background:#fff;}
+  .qblock .src{display:block;font-family:'Cinzel',serif;font-style:normal;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:12px;}
+  /* TRANSMISSION */
+  .transmission{margin:38px 0 8px;padding:30px 32px;background:var(--indigo);border-radius:4px;box-shadow:0 10px 34px var(--shadow);}
+  .transmission .tlab{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px;}
+  .transmission p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.22rem;line-height:1.5;color:rgba(250,246,236,0.86);margin:0;}
+  /* HONESTY / NOTE BOX */
+  .notebox{background:var(--cream);border:1px solid var(--rule);padding:26px 30px;margin:34px 0;}
+  .notebox .nh{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block;}
+  .notebox p{font-size:1rem;}
+  /* PRACTICE */
+  .practice-mv{margin:30px 0;}
+  .mv-label{font-family:'Cinzel',serif;font-size:0.66rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+  .mv-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--indigo);margin-bottom:14px;}
+  .liturgy{font-family:'Cormorant Garamond',serif;font-size:1.3rem;line-height:1.6;color:var(--violet);font-style:italic;padding-left:22px;border-left:2px solid var(--gold-light);margin:14px 0;}
+  .iam{color:var(--indigo);font-style:normal;}
+  /* BENEDICTION */
+  .benediction{background:var(--indigo);color:var(--cream);padding:110px 40px;text-align:center;}
+  .benediction .mark{color:var(--gold);font-size:1.4rem;margin-bottom:30px;}
+  .benediction h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,5vw,3rem);color:var(--cream);margin-bottom:30px;line-height:1.2;}
+  .benediction p{max-width:640px;margin:1rem auto;color:rgba(250,246,236,0.78);}
+  .benediction .sign{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-top:40px;}
+  @media(max-width:640px){.chapter{padding:60px 22px;}.part{padding:80px 24px;}.oneline{padding:80px 24px;}}
+  @media print{.toc,.cover .by{break-inside:avoid;}.part{break-before:page;}.chapter{break-before:page;}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <span class="kicker">Manual · Practice · Transmission</span>
+  <div class="mark">❦</div>
+  <h1><span class="a">The Ascension</span><span class="a">Manual</span></h1>
+  <p class="sub">A Path of Remembering</p>
+  <span class="by">Written &amp; Transmitted by Constantin Cranz</span>
+</section>
+
+<!-- ONE LINE -->
+<section class="oneline">
+  <span class="lab">The Whole Teaching in One Line</span>
+  <p>What you have been seeking, you already are.</p>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="toc">
+  <div class="toc-inner">
+    <span class="lab">Contents</span>
+    <a href="#word"><span class="rn">❦</span><span class="nm">A Word to the Reader</span></a>
+    <div class="toc-part">Part I · The Foundation</div>
+    <a href="#c1"><span class="rn">I</span><span class="nm">The Nature of What You Are</span></a>
+    <a href="#c2"><span class="rn">II</span><span class="nm">Resting as Awareness</span><span class="nw">New</span></a>
+    <a href="#c3"><span class="rn">III</span><span class="nm">The Two Movements — Making and Creating</span><span class="nw">New</span></a>
+    <a href="#c4"><span class="rn">IV</span><span class="nm">The Universal Laws</span></a>
+    <a href="#c5"><span class="rn">V</span><span class="nm">The Path of Remembering</span></a>
+    <div class="toc-part">Part II · The Inner Work</div>
+    <a href="#c6"><span class="rn">VI</span><span class="nm">The I AM Presence</span></a>
+    <a href="#c7"><span class="rn">VII</span><span class="nm">The Violet Flame</span></a>
+    <a href="#c8"><span class="rn">VIII</span><span class="nm">The Christ Mind</span></a>
+    <a href="#c9"><span class="rn">IX</span><span class="nm">The Living Heart</span></a>
+    <a href="#c10"><span class="rn">X</span><span class="nm">The Law of Assumption</span></a>
+    <div class="toc-part">Part III · The Embodiment</div>
+    <a href="#c11"><span class="rn">XI</span><span class="nm">The Sovereign Body</span></a>
+    <a href="#c12"><span class="rn">XII</span><span class="nm">The Sovereign Life</span></a>
+    <a href="#c13"><span class="rn">XIII</span><span class="nm">The Great Work</span></a>
+    <div class="toc-part">Part IV · The Instrument</div>
+    <a href="#practice"><span class="rn">❦</span><span class="nm">The Sovereign I AM Practice</span></a>
+    <a href="#benediction"><span class="rn">❦</span><span class="nm">Benediction</span></a>
+  </div>
+</section>
+
+<!-- A WORD TO THE READER -->
+<section class="chapter alt" id="word">
+  <div class="wrap">
+    <span class="ch-num">❦ &nbsp; Preface</span>
+    <h2 class="ch-title">A Word to the Reader</h2>
+    <p class="ch-epigraph">Read slowly. Read twice. Practice what resonates, and leave what does not — until later, when it will.</p>
+    <p class="lead">Whoever you are, reading this, I do not ask you to believe a single word I write. Take none of this as doctrine. This is a record of what I have found to be true by living these teachings in my own life, and by walking alongside others as they begin to live them in theirs.</p>
+    <p>I have drawn from many streams. Two of them form the spine of everything here: <strong>A Course in Miracles</strong> and <strong>Dzogchen</strong>. The one is a complete retraining of perception toward Love; the other is the direct recognition of the awareness that was never confused to begin with. Around that spine flow beloved tributaries: the I AM Discourses of Saint Germain, the Law of Assumption as Neville Goddard taught it, the Way of Mastery received through Jeshua, Advaita Vedanta, and the Hridaya path of the Spiritual Heart. They differ in language, culture, and method. On the essence, they converge completely, and where a tributary's current would pull against the spine, I have let the spine decide.</p>
+    <p>What they share, and what I have tested to the point where I can no longer doubt it, is this: <strong>what you have been seeking, you already are.</strong> The path undoes one thing only: the conviction that you lack anything at all. Nothing is acquired. Something false is set down.</p>
+
+    <div class="notebox">
+      <span class="nh">On How to Read What Follows</span>
+      <p>Some of what is here you can observe directly: the difference between strain and ease, between grasping and rest. Some is psychology, testable in practice, in how an assumed identity reorganises attention and action. And some is spiritual insight, offered for your own testing, never to be believed on authority. Hold the honest question over every page: <em>is this something I can observe, something psychology confirms, or an insight offered for testing?</em> Where this book speaks with certainty, hear the certainty of practice, not of proof. Test everything in the laboratory of your own life.</p>
+    </div>
+
+    <div class="notebox">
+      <span class="nh">A Word on the Words "I AM"</span>
+      <p>This phrase runs through the whole book, and it can be heard in two opposite ways. There is the <em>I am</em> of the small self asserting itself, the voice of will and effort: <em>I am doing this, I am making this happen.</em> Set that one aside. The I AM of this book is the reverse of assertion: the wholeness that is already the case before any will moves, the awareness in which the small self appears. Wherever you meet <em>I AM</em> in these pages, in a decree, an invocation, a practice, hear the second, never the first. To assert is to strain. To rest in what already is, and let it speak, is the practice.</p>
+    </div>
+
+    <p>This book is written for three readers: for me, as an instrument I return to; for the men and women who have asked me to walk this path alongside them; and for you, whoever you are, who picked it up because something in you is ready.</p>
+    <p>The voice in these pages is mine where I speak as one who has walked, and the voice of the Masters where they speak through me as transmission. I have disguised neither. You will know which is which.</p>
+    <p>If what is here points you home, it will change you — and the change will be mine in no part of it. It points to what is already so, and what is already so asks only to stop being argued with. You are already what you seek. This book exists only to help you remember.</p>
+  </div>
+</section>
+
+<!-- PART I -->
+<section class="part" data-rn="I" id="part1">
+  <span class="pk">Part One</span>
+  <h2>The Foundation</h2>
+  <p class="ps">Before the practices, the ground they rest upon.</p>
+</section>
+
+<!-- CH I -->
+<section class="chapter" id="c1">
+  <div class="wrap">
+    <span class="ch-num">Chapter I</span>
+    <h2 class="ch-title">The Nature of What You Are</h2>
+    <p class="ch-epigraph">Tat tvam asi. — Thou art That.<span class="src">The Upanishads</span></p>
+    <p class="lead">We begin here, because everything else begins here.</p>
+    <p>You are not what you think you are. Your name, your body, your history, your personality, your roles, your thoughts, your preferences, the story you have been telling about yourself for as long as you can remember — all of it is real in its own way. It happens, it functions, it appears. And none of it is you.</p>
+    <p>What you are is the awareness in which all of that arises, the knowing presence that was here before any of it came and will be here when all of it goes. This is what the old traditions call the Self. It is what the I AM Discourses call the Mighty I AM Presence, what A Course in Miracles calls the Son of God, what the Upanishads call Atman and recognise as Brahman, what the Way of Mastery calls the Christ. The words differ. The pointing is identical.</p>
+    <p>Before any of the work this book describes can begin, this has to land, not as a concept but as a living recognition. The one reading these words is the awareness reading through the personality, not the personality itself. That awareness was never born and will never die. It cannot be damaged, improved, or lost. It is no thing in the world; it is the field in which the world appears.</p>
+    <p><strong>Identity precedes everything.</strong> You recognise what you are, and behaviour rearranges to match — it was never the doing that made you something. This is why the seeker's question, <em>how do I become more spiritual?</em>, is a trap. It assumes a lack, a gap to be closed, a ladder to climb. There is no ladder. There is only what you already are, and the conviction that you are something less — and that conviction produces the entire apparent journey.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission</span>
+      <p>Beloved, We speak through this one now. Listen not with the mind but with that in you which knew Us before the first word of any scripture was written. We have walked the way you walk. We have known the forgetting, and We have known the remembering. There is nothing in you that is not already perfect. The only work is the removal of the conviction that it is otherwise. Begin here, and all else follows.</p>
+    </div>
+    <div class="qblock">Nothing real can be threatened. Nothing unreal exists. Herein lies the peace of God.<span class="src">A Course in Miracles</span></div>
+    <p>Before you turn the page, pause. Close your eyes. Let go, for one breath, of the question of who you are. What remains, when the questioning stops? That. That is what you are.</p>
+  </div>
+</section>
+
+<!-- CH II (NEW) -->
+<section class="chapter alt" id="c2">
+  <div class="wrap">
+    <span class="ch-num">Chapter II <span class="new">New</span></span>
+    <h2 class="ch-title">Resting as Awareness</h2>
+    <p class="ch-epigraph">The recognition is not reached. It is what is doing the reaching.</p>
+    <p class="lead">The last chapter named what you are. This one is where you stop reading about it and rest <em>as</em> it. Every practice that follows is only useful insofar as it returns you here, and is a detour wherever it does not.</p>
+    <p>There is a recognition the Tibetan tradition of Dzogchen calls <em>rigpa</em>: the awareness that is already awake, already free, already knowing itself, prior to any effort to make it so. You do not produce it. States come and go; this is what they come and go <em>within</em>. You cannot meditate your way into it as though it were elsewhere, because it is the one already aware of the meditating. The most you can do is stop overlooking it.</p>
+    <p>So this is the one practice in the book that barely deserves the word, because a practice implies a doer doing something to get somewhere, and here there is nowhere to get. Call it a <em>letting</em> instead. For a moment, do not improve your experience. Do not still the mind, do not raise your vibration, do not reach for a better state. Simply notice the awareness that is already here, effortlessly knowing whatever is appearing: this page, the sounds, the breath, the thoughts about all of it. That knowing runs by itself. It is what you are.</p>
+    <p>Rest there, in the ordinary, ever-present fact of being aware — nothing special, nothing to attain. When a thought comes, it is already known by this awareness; you do not have to push it away. When the mind grabs and starts <em>doing</em> again, managing, seeking, improving, that grabbing is also known. Notice it, and the noticing returns you, effortlessly, to what was never lost.</p>
+    <div class="pull">You are not trying to become aware. You already are aware. You are only ceasing to overlook it.</div>
+    <p>This is the foundation under the I AM, under the Violet Flame, under every decree and assumption in the chapters to come. Spoken from here, from rested awareness, from rigpa, the practices extend what is already whole. Let the small self speak the same words while trying to get somewhere and they curdle into effort, and effort affirms the very lack it is trying to escape. So before any method: rest. Even ten seconds of recognising the awareness you already are will reseat everything that follows.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission</span>
+      <p>You have searched in every direction but the one in which the searcher stands. Turn the looking back upon itself, and find there is no one to find — only the looking, luminous and free, that you always were. This was never ours to give, nor yours to get. We only point until you stop looking past it.</p>
+    </div>
+    <p>Return to this through the day, in the gaps: between tasks, at a red light, before sleep. A brief remembering of what is always already the case — nothing added to the list, only this. The whole of ascension is contained, in seed, in this single turning of attention back to its source.</p>
+  </div>
+</section>
+
+<!-- CH III (NEW) -->
+<section class="chapter" id="c3">
+  <div class="wrap">
+    <span class="ch-num">Chapter III <span class="new">New</span></span>
+    <h2 class="ch-title">The Two Movements — Making and Creating</h2>
+    <p class="ch-epigraph">The same act, from two different sources, produces two different worlds.</p>
+    <p class="lead">There is one distinction that, once felt, organises this whole book, and the difference between a life of strain and a life of grace. It is the difference between <strong>making</strong> and <strong>creating</strong>.</p>
+    <p><strong>Making is what the small self does.</strong> It begins from lack: something is missing, and the self sets out to forge it, planning, forcing, defending what it builds. What is made this way carries the maker's anxiety inside it, and has to be propped up, because it was never resting on anything real. <strong>Creating is what the Self does.</strong> It begins from fullness: nothing is missing, and what arises arises the way a spring rises or light extends, not performed but allowed. The two can produce outwardly similar things. The difference is the source, and the source is always legible in the texture.</p>
+    <p>And here is the part the mind resists: <strong>creation is happening all the time.</strong> You are extending your inner state into your life in every moment, awake or asleep, conscious or not. Consciousness does not switch creation on; it determines only what is extended. Clouded by what the world has placed in you, by fear, lack, confusion, the life that forms is distorted, heavy with the making. Clear, the same movement extends as beauty, wisdom, and Love. One stream, never two — the only question is whether it moves clouded or clear.</p>
+    <div class="pull">Strain is the signature of making. Ease is the signature of creating. The body knows the difference long before the mind can name it.</div>
+    <p>This gives you a diagnostic more reliable than any belief: <strong>the texture of the doing</strong>. When something in you is forging, gripping, hurrying, defending, proving, you have slipped into making, and into the lack that drives it. When something arises effortlessly, on its own, with no one straining behind it, that is creation, moving as it always does. Feeling this is easier than analysing it. You can feel it, in the chest, in the breath, in whether the next step is being forced or is simply arriving.</p>
+    <p>Watch the two movements through everything that follows. A decree spoken to <em>get</em> is making; the same decree spoken from rested recognition is creating. An assumption climbed toward from lack is making; the same state, recognised as already so, is creation. The whole of this manual could be summed as this: learn to feel the moment you cross from creating into making, and, without strain, return.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission</span>
+      <p>We have never once asked you to make yourselves into anything. To make is to declare that what God created is not enough. We ask only that you let what is already whole extend through you — unforced, unhurried, unafraid. The hurry is the tell. When you notice it, you have already found the door. Pause, and let creation do what making never could.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH IV -->
+<section class="chapter alt" id="c4">
+  <div class="wrap">
+    <span class="ch-num">Chapter IV</span>
+    <h2 class="ch-title">The Universal Laws</h2>
+    <p class="ch-epigraph">A belief is something you hold. A principle is something that holds you.</p>
+    <p class="lead">A belief is personal, cultural, variable; it depends on who holds it. A principle is structural and indifferent; it operates whether or not you believe in it. Gravity does not require your assent, and neither do the laws described here. They describe how consciousness already operates — call them opinions and you will simply keep colliding with them.</p>
+    <p>But hold them, from the first, inside the recognition of the last chapters, or they will be misread exactly as the small self misreads everything: as levers to master and use to get what is missing. A law taken hold of from lack becomes a lever you strain against the world with. The same law, recognised from wholeness, is simply how creation already moves. Read each as the lawful texture of a world that is itself arising in awareness.</p>
+    <p><strong>The Law of Identity.</strong> What you take yourself to be, you become. "I AM" is not a phrase; it is the creative faculty itself, and whatever you join to it tends to harden into experience. To say "I AM unworthy" is to live as unworthiness; to rest as "I AM whole" is to let wholeness express. Most people wield this unconsciously, speaking lack to themselves all day. The deepest move drops the wielding altogether: recognise the one the I AM already names, and let identity rest there.</p>
+    <p><strong>The Law of Reflection.</strong> The outer is the exact reflection of the inner. Not a rough approximation; the exact. What appears as your life is the form your consciousness has taken. This is hard to swallow because it ends blame; it is also the door to freedom, because the one thing always within reach is the state you meet the world from. <em>Projection makes perception</em>, the Course says. The world is a mirror, and a mirror shows a state, never a sentence.</p>
+    <p><strong>The Law of Belief.</strong> What you deeply assume to be true becomes true for you. This is distinct from surface affirmation. Repeat "I am wealthy" a thousand times; if you assume at the root that you are poor, the assumption wins. Reality answers what you assume, not what you say.</p>
+    <p><strong>The Law of Extension</strong> <em>(once called Imagination).</em> Forget the idea of imagination as idle fantasy. It is the faculty through which the formless extends into form: the imagining of the one Mind, happening through you. Everything human-made was first imagined. Imagination is how creation takes form — the seed of every house, every symphony, every kindness. Held from fullness, what you dwell in, you extend. Held from lack, the same faculty only manufactures more lack.</p>
+    <p><strong>The Law of Entropy.</strong> What is not consciously held returns to disorder. Body, mind, finances, relationships all tend toward decay without cultivation. This is why daily practice matters: you do not rise once and remain risen; you return each morning. And the return is no climb to resent. Remembering, like breathing, is simply continuous.</p>
+    <p>You do not need to memorise these. You need only notice which one you are arguing with in any moment, and return.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission</span>
+      <p>These laws belong to no one. They are the operating nature of Consciousness itself, and We have only spoken them in every age, through every instrument willing to carry them. Align with them, and all the assistance of Heaven is immediately at hand. Argue with them, and you suffer for no reason other than the arguing. They were never meant to be wielded. They were meant to be trusted.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH V -->
+<section class="chapter" id="c5">
+  <div class="wrap">
+    <span class="ch-num">Chapter V</span>
+    <h2 class="ch-title">The Path of Remembering</h2>
+    <p class="ch-epigraph">The path is not one of becoming. It is one of uncovering what never left.</p>
+    <p class="lead">This is the hardest chapter to write, because it must dismantle the premise that has been driving your whole life.</p>
+    <p>You have been told, in a thousand ways, that you are inadequate as you are and must become something better: more spiritual, more enlightened, more disciplined, more awake. Every tradition has its version. Every self-help book reinforces it. Every advertisement assumes it. It is a lie.</p>
+    <p>There is nothing to become. The Self you are is already complete, already whole, already awake, already home. It has never not been. The whole journey is recognition, not arrival — a remembering of what you already are. This is what every true tradition, read carefully, actually says.</p>
+    <p>Advaita calls it <em>neti-neti</em>, not this, not this: you investigate what you take yourself to be, find none of it is truly you, and what remains is the Self. Nothing is added; something false is subtracted. The Course calls it the Atonement, the removal of the blocks to the awareness of Love's presence, which is your natural inheritance. Neville calls it awakening from the dream of Adam. The Way of Mastery calls it the remembrance of Christ — a recognising, never an acquiring. Saint Germain speaks of the Ascension as the flowering of a Presence that never left, here all along. Dzogchen calls it simply recognising the nature of mind, which was never lost and only ever overlooked.</p>
+    <div class="pull">Every path, at its core, is a path of removal.</div>
+    <p>This changes how you practise. You are not building a spiritual self; you are letting the false one dissolve. And the one who is noticing has always been the Christ — you are only catching up to that fact. So the practices in this book do not construct. They dissolve. The Violet Flame dissolves. The I AM decree dissolves, replacing the false identification with the true. Forgiveness dissolves. Meditation dissolves. What remains, after enough dissolving, is what you always were.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission</span>
+      <p>We have never once, in all the ages We have spoken through instruments like this one, asked anyone to become more than they were. We have asked them to see what they have always been. The distinction is everything. To seek to become is to affirm the lack; to see what already is, is to end the seeking. One asks effort without end. The other asks only the willingness to stop looking in the wrong direction.</p>
+    </div>
+    <p>This is the whole teaching. Everything that follows is method.</p>
+  </div>
+</section>
+
+<!-- PART II -->
+<section class="part" data-rn="II" id="part2">
+  <span class="pk">Part Two</span>
+  <h2>The Inner Work</h2>
+  <p class="ps">Five doorways, each alone sufficient, each a bridge, none of them the home.</p>
+</section>
+
+<!-- CH VI -->
+<section class="chapter alt" id="c6">
+  <div class="wrap">
+    <span class="ch-num">Chapter VI</span>
+    <h2 class="ch-title">The I AM Presence</h2>
+    <p class="ch-epigraph">I AM THAT I AM.<span class="src">Exodus 3:14</span></p>
+    <p class="lead">Now we come to the practices. Of all I have worked with, none has produced more change, more quickly, than direct work with the I AM Presence. And none is more easily turned into its own opposite, so let me be exact about how it is held.</p>
+    <p>"I AM" is the name given when Moses asked — the name of the creative principle itself, never merely a phrase. Yet remember the two ways it is heard: the small self's <em>I am making this happen</em>, and the recognition of the wholeness already the case. This book always means the second. The I AM Discourses, delivered through Guy Ballard in the 1930s, brought into modern form an ancient understanding: there is an individualised Presence of God dwelling above and within each human form. It is the true Self. The personality is its extension into form. This Presence <em>is</em> you, seen from its own level — closer than your own breath, available at all times to all who turn toward it.</p>
+    <p>The practice is simple and irreducible. It has three movements.</p>
+    <p><strong>Invocation.</strong> You acknowledge the Presence, not begging, for it is already you and needs no begging. "Mighty I AM Presence that I Am, be known in this form." This is a turning toward what is nearest, not a summons across some distance.</p>
+    <p><strong>Decree.</strong> You speak, in the first person, what is already true at the level of the Presence: "I AM the Light that was never born. I AM the peace that is the signature of the Christ." Hear it rightly. A decree commands nothing and begs nothing; it declares what already is, spoken from within the recognition, held with an open hand. You are not making it true. You are ceasing to contradict it.</p>
+    <p><strong>Contemplation.</strong> You rest. You let the Presence be aware of Itself as you. The words were preparation; the silence is the practice. This is Chapter II again, rigpa, and every decree should both begin and end here, or it becomes a performance.</p>
+    <p>There is one mistake I made for years: decreeing <em>from</em> lack, hoping the decree would fill it. "I AM healthy" spoken from a felt sense of sickness is only a wish wearing a decree's clothes, and the Presence does not answer wishes. So enter the state in which it is already so, and speak from there. This is what the Masters mean by <em>feeling is the secret</em>: the quiet knowing of one who already rests in wholeness, a world away from anything worked up.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission from Saint Germain</span>
+      <p>When you call upon the Mighty I AM Presence, you are not calling upon something far away. You are calling upon what you already are, at the level We have always known you to be. The delay you feel between speaking and seeing is only the distance between the word and the recognition behind it. Do not try to close that distance by force — that is the old striving. Rest until word and recognition are one, and the speaking will simply express what already is.</p>
+    </div>
+    <p>The Sovereign I AM Practice at the end of this book is the full liturgy I use daily. Begin there, morning and evening, for thirty days, but begin each time by resting, before a single word. Practised from recognition, the work neither strives nor fails, because it has nowhere to get to. It rests in what is, and lets it extend.</p>
+  </div>
+</section>
+
+<!-- CH VII -->
+<section class="chapter" id="c7">
+  <div class="wrap">
+    <span class="ch-num">Chapter VII</span>
+    <h2 class="ch-title">The Violet Flame</h2>
+    <p class="ch-epigraph">Saint Germain's gift to this age — the mercy of the Father, in visible form.</p>
+    <p class="lead">I resisted the Violet Flame for a long time. It sounded too mystical, too theatrical, too tied to a tradition I held at arm's length. Then I tried it. Then it worked. Then I had to come to terms with having dismissed something I had not understood.</p>
+    <p>The Violet Flame is not a visualisation. It is described as a frequency of consciousness whose quality is that it does not fight, does not judge, does not force. It transmutes. It returns patterns of density to their original essence as light. When you call it upon an emotion, a memory, a pattern, it does not struggle with that thing. It dissolves the separation between that thing and light, and what remains is the light that was always beneath the appearance.</p>
+    <p>Notice why this belongs to the path of removal and not to the path of forging. Try it with willpower and willpower only fights; try it with analysis and analysis only circles. The Flame does neither. It releases. That is precisely its alignment with everything in this book: it dissolves rather than constructs.</p>
+    <div class="qblock">Mighty I AM Presence, Beloved Saint Germain — blaze the Violet Consuming Flame in, through, and around every atom of my being, and consume, transmute, and dissolve every pattern that is less than the perfection of my Divine Self.</div>
+    <p>You say it. You mean it. You let what comes up come up: old emotions, forgotten memories, energies you did not know you carried. You do not have to know what they are. The Flame does. Use it daily, especially when you feel yourself about to react, when density arises, on waking, before sleep. It cannot be overused.</p>
+    <p>After some months of daily practice, you notice that what used to take you out no longer does. Not because you have become more spiritual, but because the substance in you that was available to be taken out is simply gone.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission from Saint Germain</span>
+      <p>We who have walked the ascending path have used this sacred Fire to consume what the ordinary means of purification cannot touch. It reaches what psychology cannot reach, what discipline cannot reach. It is the mercy of the Father in visible form. Call upon it daily, and the work of lifetimes becomes the work of months. We ask only your willingness. The rest We will supply.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH VIII -->
+<section class="chapter alt" id="c8">
+  <div class="wrap">
+    <span class="ch-num">Chapter VIII</span>
+    <h2 class="ch-title">The Christ Mind</h2>
+    <p class="ch-epigraph">Forgiveness is the key to happiness.<span class="src">A Course in Miracles, Lesson 121</span></p>
+    <p class="lead">A Course in Miracles is, in my estimation, the most direct training for the mind ever delivered in a single volume. It asks you to believe nothing. It offers a structured retraining of perception, day by day, over a year. If you do the work, your mind will be different at the end.</p>
+    <p>Set aside the religious ring of the phrase. The Christ Mind is simply the mind that sees through the appearance to the truth. The ordinary mind, what the Course calls the ego, sees separation, threat, lack, and loss. The Christ Mind sees oneness, safety, abundance, and the perfect equality of all. Both are always available. You are always choosing one or the other.</p>
+    <p>The central practice is forgiveness, but the Course's forgiveness is not what you think. Forget pardon — pardon still believes the wound was real. The Course's forgiveness is the recognition that the appearance of harm never actually happened at the level of truth, that you are not who the ego thinks you are, and neither are they. Forgiveness is the undoing of the projection that there was ever a separate self to be wounded in the first place. This sounds radical. It is. It is also, applied sincerely, the most immediately effective practice I know.</p>
+    <div class="qblock">Forgiveness is the key to happiness. I will awaken from the dream that I am mortal, fallible, and full of sin, and know I am the perfect Son of God.<span class="src">A Course in Miracles</span></div>
+    <p>The Holy Instant is the moment outside of time in which you recognise the Christ in yourself and in the one before you, simultaneously. Every relationship is, from here, an invitation into it. Whatever threat the ego names in the person before you, what stands there is the Christ, in a form, asking to be recognised.</p>
+    <p>Use the Course as a daily discipline, or do not, but do not skim it. It either does its work all the way through, or it stays a book. If you cannot do it in full, practise this one thing: in every difficult encounter, ask silently, <em>"What would Love see here?"</em>, and then look with those eyes. This alone, practised over months, will change your life.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission from Jeshua</span>
+      <p>I am He who walked the path you walk. I am He who wore the form you wear. There is no distance between what I AM and what you ARE. The Course was given to undo, line by line, the teaching of separation that has shaped your world. Take it up. Do the lessons. Let them do their work. I am with you always — even unto the end of time, and past it, into the timeless.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH IX -->
+<section class="chapter" id="c9">
+  <div class="wrap">
+    <span class="ch-num">Chapter IX</span>
+    <h2 class="ch-title">The Living Heart</h2>
+    <p class="ch-epigraph">The Christ Mind must descend into the living heart, or it becomes theology.</p>
+    <p class="lead">This is what the Way of Mastery teaches and what the Hridaya tradition preserves: the heart they mean is not the organ. It is the seat of the Self, the place where God is most directly knowable in human form.</p>
+    <p>When you are in your mind, you are in the realm of thought, which is the realm of the ego. When you are in your heart, truly and not sentimentally, you are in the realm of direct knowing: the realm of Christ, of Atman, of the I AM. The practice is simple. Place your attention in the centre of the chest — on the felt sense of presence there, deeper than the beating organ. Breathe into it. Rest in it. Let the mind settle into it.</p>
+    <p>This is what the old contemplatives called the prayer of the heart. It is what the Tibetan masters call resting in rigpa. It is what the Way of Mastery calls abiding in the Christ. In this state certain things become impossible: to hold resentment, to feel separate, to feel afraid in the ordinary sense. You have not willed them away. You have simply entered a place from which they do not arise.</p>
+    <div class="qblock">The only place Christ can be known is in the heart that is willing to be empty for Him. And when you are willing, you will find that you were already home.<span class="src">The Way of Mastery · Jeshua</span></div>
+    <p>This is also where feeling becomes operative. Neville said feeling is the secret. He did not mean sentiment, nor some emotion worked up to make the world deliver. He meant that creation moves through feeling, and the feeling that carries it is found rather than manufactured: the quiet knowing of the heart that already rests in what is. Whatever is genuinely felt as true from that rested heart extends into the world.</p>
+    <p>The heart is both the seat of remembrance and the seat of creation. The two are the same. Practise descending into it daily; ten minutes is enough, but daily. Over months, the centre of your life shifts from the head to the heart, and everything else reorganises.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission</span>
+      <p>The heart you seek is not the one that beats. It is the One in which the beating occurs. Descend into it. Do not try to hold it — let it hold you. All true remembering takes place here. All false seeking ceases here. Here is the throne of the I AM, and here is where We meet you in your true form.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH X -->
+<section class="chapter alt" id="c10">
+  <div class="wrap">
+    <span class="ch-num">Chapter X</span>
+    <h2 class="ch-title">The Law of Assumption</h2>
+    <p class="ch-epigraph">Dare to believe in the reality of your assumption, and watch the world play its part.<span class="src">Neville Goddard</span></p>
+    <p class="lead">Neville Goddard taught one thing, in a thousand ways, for a thirty-year career: creation moves through imagination, and the faculty by which it does so is assumption.</p>
+    <p>To assume something is to take it as given, not to hope for it, not to wish for it, but to live as though it is already so. Reality answers what you assume, not what you desire. This is why so many lives look like their fears rather than their dreams: people assume the fears and merely wish for the dreams. It is the most practical teaching in this book, and the one students find hardest to actually do, because the small self keeps trying to <em>use</em> it to get, and using-to-get is the one posture in which it does not work.</p>
+    <p>Here is the practice, held rightly. First, separate two layers. There is the <strong>essence</strong>, the quality of being, the felt life beneath the thing; and there is the <strong>form</strong>, the exact object, person, amount, and timing. Be vivid and clear about the essence. Hold the form with an open hand. To dictate the form is to demand that a larger intelligence deliver exactly what the small mind already pictured, which is making, not creating. <em>This, or something greater.</em></p>
+    <p>Then, do not climb toward the assumed state from below, straining to reach it. Notice that nothing is missing in what you are; rest there one breath; and from there, not toward it, recognise the state as already present, and live from it. Construct, if it helps, a simple scene that implies the essence is already so: the quiet <em>after</em>, when it is simply your life — long past the moment of receiving. Enter it with feeling, feeling found, not forged. Do this as you fall asleep, the state consciousness rests in through the night; and again on waking. Then let it be.</p>
+    <div class="pull">You cannot wish your way into a new reality. You can only be your way into it — and being is not a strain. It is a recognition.</div>
+    <p>When something is not coming, I do not push harder. I ask: what am I still assuming, beneath the conscious prayer? Invariably there is an unexamined assumption of lack contradicting it. When the assumption is met and released, the outer follows of itself. No force of mine moves it; I have simply stopped extending the lack.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission</span>
+      <p>Leave behind any thought of magic or of levers. The God that you are answers neither supplication nor manipulation. It answers identification. When you rest in identity with what you already are, the world cannot help but reflect it — never by compulsion, only because the outer was never separate from the inner. We have spoken this for ages. Hear it now, and stop straining to make true what is already so.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PART III -->
+<section class="part" data-rn="III" id="part3">
+  <span class="pk">Part Three</span>
+  <h2>The Embodiment</h2>
+  <p class="ps">The realisation must descend into flesh, or it is not yet realised.</p>
+</section>
+
+<!-- CH XI -->
+<section class="chapter" id="c11">
+  <div class="wrap">
+    <span class="ch-num">Chapter XI</span>
+    <h2 class="ch-title">The Sovereign Body</h2>
+    <p class="ch-epigraph">The body is the exact instrument through which this lifetime's work happens.</p>
+    <p class="lead">For years I treated my body as something between me and my spiritual goals, a resistance to overcome. This was a mistake. Every degradation of the body is a degradation of the instrument; every consecration of it, a consecration of the instrument.</p>
+    <p>Call the principle stewardship, never asceticism. Asceticism suppresses the body as enemy. Sovereignty stewards the body as sacred instrument, and the difference shows in specifics. <strong>Nourishment:</strong> you eat what supports the instrument, in the quantities it thrives on, at the times its rhythm asks, letting the tongue's demands and the pull of habit fall quiet, and you close the vessel a reasonable hour before sleep, so the body can restore rather than digest. <strong>Rest:</strong> sleep earns its hours — the nervous system resets in it and the substance of consciousness reorganises. Agitation carried into the night steals from the next day. <strong>Movement:</strong> the body was made to move, and stagnation produces the very density that then has to be dissolved. <strong>Stimulation:</strong> you are sovereign over what enters the vessel; caffeine in excess generates dependence on a simulation of the vitality you already are, so moderate it, watch it. <strong>Breath:</strong> the most underused tool in the Western practitioner's kit; a few minutes of conscious breathing changes state.</p>
+    <p>Forget the body-ideal entirely. A sovereign body might be old, soft, or frail. What makes it sovereign is that its rhythms are consciously held, its needs met without indulgence, its voice listened to. The stewardship is daily. Sovereignty is never an achieved state, only the daily return to it. And notice: held as recognition, this is care; held as a project to perfect, it becomes one more strain. Let it be the former.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission</span>
+      <p>The body you wear was given to you as a gift and as a task. To honour it is to honour the One who made it. The sovereign being does not abandon the body; the sovereign being takes up the body as the very site of the Great Work. Through this form, you are meant to let the I AM be seen in flesh.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH XII -->
+<section class="chapter alt" id="c12">
+  <div class="wrap">
+    <span class="ch-num">Chapter XII</span>
+    <h2 class="ch-title">The Sovereign Life</h2>
+    <p class="ch-epigraph">There is no part of your life that is not spiritual life. The separation between sacred and mundane is the first illusion.</p>
+    <p class="lead">What is true of the body is true of the whole life. Every domain obeys the same laws.</p>
+    <p><strong>Relationships.</strong> Every meeting is, from the level of the Christ, the Christ recognising the Christ. From the level of the ego, every meeting is a transaction: what do I want, what do they want, what is the exchange. These two views cannot both be held at once. The sovereign practitioner relates from fullness, not from need. You do not enter relationships to get what you are missing, but because the Presence in you recognises the Presence in them, and there is joy in the meeting. Then the relationship has room to be what it is, freed from the shape your need would impose on it.</p>
+    <p><strong>Sexuality.</strong> Traditions tend toward one of two errors: suppression, which treats the life force as dirty and dangerous, or indulgence, which treats it as entertainment. Sovereignty is neither. It recognises the sexual life force as sacred, the creative principle of the universe in human form, and stewards it: neither suppressed nor scattered, but engaged where engagement is honouring, undivided, conscious. The test is simple: does this leave me more myself, or less? Does it honour the life force, or dissipate it?</p>
+    <p><strong>Work.</strong> Work is the Great Work made practical. Every piece of work is either an expression of who you are or a negotiation with the world to let you be someone else. Choose the first; over time the second becomes unsustainable anyway. <strong>Money.</strong> Money is energy; it flows where there is alignment and blocks where there is contradiction. Beliefs that wealth is sinful, or that spiritual people must be poor, dress lack-consciousness up as virtue. That is all they are: lack, wearing a halo. The abundance that is your natural inheritance is never withheld from above; where it fails to flow, look for the place you are refusing it. Examine the refusal. Let it dissolve.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission</span>
+      <p>Your body is sacred. Your sexuality is sacred. Your work is sacred. Your money is sacred. To treat any of them otherwise is to divide what is whole, and then to suffer the division. When you return all of life to the altar of your I AM, nothing is profane, and nothing is withheld.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH XIII -->
+<section class="chapter" id="c13">
+  <div class="wrap">
+    <span class="ch-num">Chapter XIII</span>
+    <h2 class="ch-title">The Great Work</h2>
+    <p class="ch-epigraph">The demonstration is the teaching.</p>
+    <p class="lead">The Great Work is no job, no career, no task on a list. It is the reason this incarnation is happening. Every being who is awakening is awakening for something larger than themselves.</p>
+    <p>In the older traditions this was understood: the initiate pursued awakening as a contribution to the whole, with personal benefit nowhere in it. The private good and the common good were not separate; they were the same act seen from two sides. This is why <em>the moment awakening starts to feel like a private project, something is off.</em> Your awakening is for the field. Your demonstration is the teaching. Others do not, in the end, need you to explain the path; they need you to walk it in a way that makes the walking visible.</p>
+    <p>This is what I tell those I work with: the most generous thing you can do for the people around you is to become what you actually are, dropping the version of you that you imagine they need. Because in the field of your actual being, permission is given to them, silently, beneath words, to do the same.</p>
+    <div class="pull">You do not have to proselytise. You do not have to convince. The ones who are ready will recognise you, and ask. What they are asking for is not information — it is confirmation that what they sense is possible actually is. Your life answers that.</div>
+    <p>Find the form your Great Work wants to take. For some it is coaching, for some art, for some raising children, for some quiet presence in a community. The form does not matter; what matters is that the life becomes the transmission. And hold even this lightly. The Great Work is what extends, on its own, from a life that has stopped arguing with what it is — never an achievement to be seized, never a destiny to announce. You will know you have grasped it the moment it starts to feel like yours. The hour you find yourself forging it, hurrying it, or making it the proof of your specialness, you have slipped from creating back into making. Pause, return, and let it move again.</p>
+    <div class="transmission">
+      <span class="tlab">A Transmission from the Ascended Host</span>
+      <p>Those of Us who have ascended before you did not do so privately. Every ascension is a lighthouse. Every being who comes home makes the way home more visible to those still walking. This is why your work is not yours alone — and why We stand with every true seeker, because every true seeker is serving, whether they know it or not. You are seen. You are supported. You are never alone in this.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PART IV -->
+<section class="part" data-rn="IV" id="part4">
+  <span class="pk">Part Four</span>
+  <h2>The Instrument</h2>
+  <p class="ps">The daily practice through which the teaching becomes the life.</p>
+</section>
+
+<!-- THE PRACTICE -->
+<section class="chapter" id="practice">
+  <div class="wrap">
+    <span class="ch-num">❦ &nbsp; The Practice</span>
+    <h2 class="ch-title">The Sovereign I AM Practice</h2>
+    <p class="ch-epigraph">Resting · Invocation · Purification · Empowerment · Sealing. Held morning and evening, it is enough.</p>
+    <p class="lead">What follows is the full liturgy I use morning and evening. Read it aloud if you can, with intention if you cannot. Over time the words become part of you, and the practice happens in you even when you are not speaking it.</p>
+    <p>One instruction governs all the rest, and it is the change this edition makes: <strong>do not begin with the words.</strong> Begin with silence. The decrees that follow are not levers to move the world; they are the natural speech of an awareness already at rest in what it is. Spoken from striving, they become performance. Spoken from rest, they simply express what is. So the first movement is no movement at all.</p>
+
+    <div class="practice-mv">
+      <span class="mv-label">Movement 0 · New</span>
+      <div class="mv-title">Resting — Before the Words</div>
+      <p>Sit. Let the eyes soften or close. Do not try to still the mind or reach a better state. Simply notice the awareness that is already here, effortlessly knowing this moment. Rest as that — not as something you are doing, but as what you already are. Three slow breaths, or thirty. When the silence has you, and not the other way around, then — and only then — let the first words come, rising out of the rest rather than reaching from it.</p>
+    </div>
+
+    <div class="practice-mv">
+      <span class="mv-label">I · Invocation</span>
+      <div class="mv-title">Establishing the Presence</div>
+      <p class="liturgy">In the name of the Mighty I AM Presence that I Am, in the name of Beloved Jeshua the Christ, Beloved Saint Germain, and all the Ascended Host of Light and Love — I now consciously rest in the field of my own Divinity.<br><br>
+      <span class="iam">I AM that I AM.</span> <span class="iam">I AM the Self-existent One.</span> <span class="iam">I AM the Light that was never born and cannot die.</span> <span class="iam">I AM the silent witness, the knowing awareness, the very Heart of the Heart.</span><br><br>
+      Mighty I AM Presence, be known now through this form — fill every atom, every cell, every breath. Anchor a Pillar of dazzling White Light and Violet Flame around, through, and within this form, that I may rest in Thy perfection, Thy sovereignty, Thy peace.<br><br>
+      <span class="iam">I AM here · I AM whole · I AM home.</span></p>
+    </div>
+
+    <div class="practice-mv">
+      <span class="mv-label">II · Purification</span>
+      <div class="mv-title">The Violet Consuming Flame</div>
+      <p class="liturgy">Beloved Mighty I AM Presence, Beloved Saint Germain — blaze, blaze, blaze the Violet Consuming Flame in, through, and around every level of my being: physical, etheric, emotional, mental, causal — and consume, transmute, and dissolve now every pattern, tendency, and record that is less than the perfection of my Divine Self.</p>
+      <p class="liturgy"><em>On the body —</em> blaze the Flame through every rhythm of this temple. I release all eating past the hour of rest, all agitation carried into the night, all dependence on stimulants to simulate a vitality I already am. <span class="iam">I AM the sovereign steward of what enters this vessel, and when.</span></p>
+      <p class="liturgy"><em>On sleep —</em> flow through every channel of rest. I release all restlessness, all mental residue. <span class="iam">I AM restored in Light while this body sleeps; I AM carried into the deep.</span></p>
+      <p class="liturgy"><em>On the emotional field —</em> blaze through every feeling-record: every subtle fear, every grasping, every hidden comparison, every quiet striving. <span class="iam">I AM the unshakable peace that is the signature of the Christ.</span></p>
+      <p class="liturgy"><em>On the energetic &amp; sexual field —</em> blaze through the sacred life force itself. I release all scattering of this holy current, all engagement born of want or the seeking of reassurance, all division of presence across what was never meant to be divided. <span class="iam">I AM the singular flame of my own Being; the alchemist who lifts eros into ascension.</span></p>
+      <p class="liturgy"><em>On the mental field —</em> consume every thoughtform that is not my own: every image of lack, every rehearsal of a self I no longer am, every loop of doubt and defence. <span class="iam">I AM the clear mind; the imagination of God awake in me.</span></p>
+      <p class="liturgy"><em>On the last veil —</em> reveal and consume the hidden reservation, the silent hedging, the quiet "just in case" of the small self that dishonours the Presence I Am. <span class="iam">I AM total trust; the surrender that has nothing left to hold.</span><br><br>So it is done. So it is sealed. So it is dissolved forever into the Ocean of Violet Light.</p>
+    </div>
+
+    <div class="practice-mv">
+      <span class="mv-label">III · Empowerment</span>
+      <div class="mv-title">The I AM Decrees</div>
+      <p>Spoken not to acquire, but to cease contradicting what is already so. Let each rise from the rest, not reach from lack.</p>
+      <p class="liturgy"><em>Identity —</em> <span class="iam">I AM the I AM. I AM the Christ Self made manifest. I AM the Atonement accepted, the remembrance complete. I AM already whole. I AM already home. I AM That which was never not.</span></p>
+      <p class="liturgy"><em>Body —</em> <span class="iam">I AM the temple of the Living Light, the perfect harmony of every cell. I AM the natural rhythm of nourishment, movement, and rest. I AM radiant health, radiant ease, the glad stewardship of this vehicle of service.</span></p>
+      <p class="liturgy"><em>Emotions —</em> <span class="iam">I AM the peace that passeth understanding, the stillness at the centre of every experience. I AM Love feeling Itself as this one. I AM untouched by what touches me.</span></p>
+      <p class="liturgy"><em>Energy &amp; sexuality —</em> <span class="iam">I AM the sovereign steward of the life force — directed, conscious, whole. I AM the one who chooses from fullness, never from need. I AM undivided devotion, and I AM free.</span></p>
+      <p class="liturgy"><em>Mind —</em> <span class="iam">I AM the Christ Mind, the clarity that sees through every appearance. I AM the single eye, the unified seeing. I AM awake in the dream, and the dream is recognised as dream. I AM the thinker who thinks only as God thinks.</span></p>
+      <p class="liturgy"><em>Relationships —</em> <span class="iam">I AM the presence that brings the Kingdom into every meeting. I AM the clear mirror, the honest word, the open heart. I AM the Christ recognising the Christ, and nothing less.</span></p>
+      <p class="liturgy"><em>Prosperity —</em> <span class="iam">I AM the abundance of the universe flowing through right livelihood. I AM the one who receives because I AM the one who gives. I AM supplied, always, gracefully, in perfect Divine timing — wealth in service to the Great Work.</span></p>
+      <p class="liturgy"><em>Service —</em> <span class="iam">I AM the living demonstration of the teaching I carry. I AM the presence that makes the invisible visible. I AM in service to the awakening of all — and in the awakening of all, I too am awakened.</span></p>
+    </div>
+
+    <div class="practice-mv">
+      <span class="mv-label">IV · Sealing</span>
+      <div class="mv-title">Divine Will &amp; the Tube of Light</div>
+      <p class="liturgy"><span class="iam">Not my will but Thine,</span> Mighty I AM Presence. I AM surrendered to the Divine Plan fulfilled. I AM willing — which is all the Masters ever ask. I AM led, guided, directed, and I trust where I AM taken. <span class="iam">I AM the Way, and the Way walks Itself through me.</span><br><br>
+      Beloved Mighty I AM Presence, seal this practice and seal this one in a Tube of dazzling White Light, and let the Threefold Flame of Love, Wisdom, and Power burn bright in the Heart, undimmed.<br><br>
+      I give thanks — to the Mighty I AM Presence, to Beloved Saint Germain, to the Ascended Host, to the Christ that I Am and the Christ in all.<br><br>
+      <span class="iam">It is done · It is sealed · It is so. &nbsp; I AM · I AM · I AM.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- BENEDICTION -->
+<section class="benediction" id="benediction">
+  <div class="wrap">
+    <div class="mark">❦</div>
+    <h2>Benediction</h2>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;color:var(--gold-light);">The road back to remembrance is the road forward into embodiment.</p>
+    <p>We return to where we began. You are not what you think you are. You are the awareness in which everything arises. You are the I AM. You are the Christ. You are already home. You have never been separate. You have never needed to be saved.</p>
+    <p>If anything in this book has felt true, it has felt true because it was true before you read it. It is true now. It will be true when you put the book down. The practices work not because they force anything, but because they are aligned with what already is, and the Presence you call upon is the Presence you are.</p>
+    <div class="transmission" style="background:rgba(250,246,236,0.06);box-shadow:none;border:1px solid rgba(184,146,74,0.3);text-align:left;">
+      <span class="tlab">A Final Transmission</span>
+      <p>Beloved one, We who have walked — and who walk still — bless the instrument that is your life. The road back to remembrance is the road forward into embodiment. You are not alone on it, and never have been. Go now. Take up what is in these pages. Live it until you no longer need the pages. Then teach it to the next one the way it was given to you — by being it. We are with you. There is no distance. There is only the I AM, appearing as this, and as that, and as you. Peace, We leave with you. It is done. It is sealed. It is so.</p>
+    </div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:var(--gold-light);margin-top:34px;">I AM · I AM · I AM</p>
+    <p class="sign">Constantin Cranz · Medellín · MMXXVI</p>
+    <p style="font-style:italic;color:rgba(250,246,236,0.6);">May this manual serve as a luminous signpost, guiding you home to your own radiant Self.</p>
+  </div>
+</section>
+
+</body>
+</html>
